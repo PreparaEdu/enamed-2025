@@ -1,0 +1,1048 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ENAMED Medicina 2025 - Painel</title>
+<style>
+:root{--navy:#0f2744;--blue:#2457a7;--orange:#ff981f;--line:#d9e2ef;--muted:#5f6b7a;--bg:#f5f7fb;--green:#15946f;--red:#c81e1e;--yellow:#f59e0b}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#111827}header{background:#fff;border-bottom:1px solid var(--line);padding:18px 24px;position:sticky;top:0;z-index:5}h1{margin:0 0 12px;font-size:25px;color:#06172c}.top{display:flex;justify-content:space-between;gap:16px}.meta{color:var(--muted);font-size:13px}.filters{display:grid;grid-template-columns:1.4fr 1fr 1.6fr .8fr 1fr 1fr;gap:10px;align-items:start}.filters input,.filters select{height:42px;border:1px solid #cfd8e3;border-radius:7px;background:#fff;padding:0 12px;font-size:14px;min-width:0}.buttons{display:flex;gap:8px;margin-top:8px}.btn{border:0;border-radius:7px;background:var(--blue);color:#fff;font-weight:800;padding:9px 13px;cursor:pointer}.btn:hover{background:#1f4d91}.layout{display:grid;grid-template-columns:42% 58%;height:calc(100vh - 146px)}.panel{background:#fff;border-right:1px solid var(--line);overflow:auto}.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:18px 24px}.kpi{background:#fff;border:1px solid var(--line);border-radius:8px;padding:13px 15px}.kpi span{display:block;color:var(--muted);font-size:12px}.kpi strong{display:block;margin-top:6px;font-size:24px;color:#07182e}.course-head{padding:14px 18px;display:flex;justify-content:space-between;align-items:center}.course-head h2{margin:0;font-size:16px}table{width:100%;border-collapse:collapse;font-size:12px}th{position:sticky;top:0;background:#eef2f7;color:#26313f;text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);z-index:1}td{padding:9px 10px;border-bottom:1px solid #edf0f4;vertical-align:top}.course-row{cursor:pointer}.course-row:hover,.course-row.active{background:#eaf3f5}.course-name{font-weight:800;color:#ff6215}.course-sub{color:var(--muted);font-size:11px;margin-top:4px}.badge{display:inline-block;border-radius:999px;padding:3px 7px;margin-left:6px;font-size:10px;font-weight:900;color:#fff;background:var(--orange)}.print-small{border:0;border-radius:6px;background:var(--blue);color:#fff;font-size:11px;font-weight:800;padding:7px 10px;cursor:pointer}.detail{padding:22px 24px;overflow:auto}.hero{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:14px}.hero h2{margin:0;color:#ff6215;font-size:24px}.hero p{margin:4px 0 0;color:var(--muted)}.concept{background:var(--orange);color:#fff;border-radius:7px;padding:8px 14px;font-weight:900;white-space:nowrap}.metric-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:14px 0}.metric{border:1px solid var(--line);background:#f7f9fc;padding:9px 10px}.metric b{display:block;font-size:11px}.metric span{display:block;font-size:18px;margin-top:5px;font-weight:800}.card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px;margin:14px 0}.card h3{margin:0 0 12px;color:#07182e;font-size:20px}.area-row{display:grid;grid-template-columns:1.4fr 110px 1.4fr 70px;gap:18px;align-items:center;padding:14px 0;border-top:1px solid var(--line)}.area-row:first-of-type{border-top:0}.area-name{font-size:16px;font-weight:700}.area-score{font-weight:900;font-size:20px}.area-score small{font-weight:400;color:#60708a}.track{height:9px;background:#e8edf4;border-radius:999px;overflow:hidden}.bar{height:100%;background:var(--green);border-radius:999px}.pct{text-align:right;font-weight:700}.donut-card{display:grid;grid-template-columns:1fr 150px;gap:16px;align-items:center}.donut{width:130px;height:130px;border-radius:50%;display:flex;align-items:center;justify-content:center}.donut>div{width:78px;height:78px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:inset 0 0 0 1px var(--line)}.donut strong{font-size:25px}.legend-item{display:flex;gap:8px;margin:8px 0}.dot{width:10px;height:10px;border-radius:50%;margin-top:3px}.tri-bars{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:end;height:160px;border-left:1px solid #cfd8e3;border-bottom:2px solid var(--navy);padding:12px 10px 0;background:repeating-linear-gradient(to top,transparent 0,transparent 31px,#edf2f7 32px)}.tri-bin{text-align:center;position:relative;display:flex;flex-direction:column;justify-content:flex-end;height:100%}.tri-bin strong{font-size:14px;margin-bottom:4px}.tri-bar{width:70%;margin:0 auto;border-radius:4px 4px 0 0}.tri-label{font-size:10px;margin-top:7px;white-space:nowrap}.tri-zero{position:absolute;left:-7px;top:0;bottom:22px;border-left:2px dashed var(--navy)}.tri-zero em{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;border-radius:5px;padding:3px 7px;font-size:9px;font-style:normal;font-weight:800;white-space:nowrap}.student-table th{background:var(--navy);color:#fff}.student-table td{text-align:center}.student-table td:first-child{text-align:left;color:var(--muted)}.q-card{border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:12px 0;break-inside:avoid}.q-head{background:#fff7eb;padding:12px 14px}.q-head h4{margin:0;font-size:15px;color:#07182e}.q-body{padding:12px 14px}.qline{display:grid;grid-template-columns:220px 1fr 72px;gap:10px;margin:7px 0;align-items:center}.qline .label{font-weight:700;font-size:12px}.note{border-left:4px solid var(--navy);background:#fbfdff;border:1px solid var(--line);border-radius:8px;padding:10px 12px;color:#40516a;line-height:1.38;font-size:12px}.section-title{background:var(--navy);color:#fff;border-radius:8px;padding:14px 16px;margin:24px 0 12px}.section-title h2{margin:0}.section-title p{margin:5px 0 0;color:rgba(255,255,255,.82);font-size:12px}.cover{background:var(--navy);color:#fff;border-radius:9px;padding:24px;margin-bottom:18px}.cover-title{font-size:26px;color:var(--orange);font-weight:900;margin:14px 0 8px}.cover-logo{display:flex;align-items:center;gap:16px;font-weight:900;letter-spacing:.25em}.cover-logo img{height:40px;background:#fff;border-radius:8px;padding:6px 12px}.print-only{display:none}@media print{body{background:#fff}.no-print,header,.layout>.panel{display:none!important}.layout{display:block;height:auto}.detail{padding:0;overflow:visible}.print-only{display:block}.card,.q-card,.donut-card{break-inside:avoid;page-break-inside:avoid}.page-break{page-break-before:always;break-before:page}@page{size:A4;margin:12mm}}
+/* Ajustes finais de layout e impressão */
+*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}.detail{max-width:1180px;margin:0 auto}.cover{background:#0f2744!important;color:#fff!important;box-shadow:none}.cover-title{color:#ff981f!important;line-height:1.05}.cover p,.cover span{color:#fff}.cover-logo span{color:#fff!important}.cover-logo span span{color:#ff981f!important}.section-title{background:#0f2744!important;color:#fff!important}.section-title h2,.section-title p{color:#fff!important}.concept,.badge{background:#ff981f!important;color:#fff!important}.metric{background:#f3f6fb!important;border:1px solid #d6e0ee!important}.metric b{color:#0f2744!important;text-transform:uppercase;letter-spacing:.03em}.metric span{color:#06172c!important}.card{border:1px solid #d6e0ee!important;border-radius:8px!important;background:#fff!important;box-shadow:0 1px 2px rgba(15,39,68,.04)}.card h3{color:#06172c!important;font-weight:900}.track{background:#e8edf4!important;border:1px solid #d9e2ef!important;height:10px!important;overflow:hidden}.bar{display:block!important;background:#11967f!important;height:100%!important;min-width:3px}.area-row{grid-template-columns:1.28fr 110px 1.08fr 64px!important;gap:16px!important}.area-name{color:#06172c!important;line-height:1.15}.area-score{color:#06172c!important}.pct{color:#06172c!important}.donut{box-shadow:inset 0 0 0 1px rgba(15,39,68,.08)}.tri-bars{height:190px!important;padding:24px 12px 0!important;overflow:visible!important;background:repeating-linear-gradient(to top,#fff 0,#fff 30px,#edf2f7 31px)!important}.tri-bin{min-width:0}.tri-bin strong{font-weight:900!important}.tri-bar{display:block!important;min-height:6px!important;width:64%!important}.tri-label{font-size:9px!important;line-height:1.1;color:#06172c!important}.tri-zero{border-left:2px dashed #0f2744!important}.tri-zero em{background:#0f2744!important;color:#fff!important}.note{background:#fbfdff!important;border-color:#d6e0ee!important;border-left-color:#0f2744!important}.student-table th,th{background:#0f2744!important;color:#fff!important}.student-table td{color:#06172c}.q-head{background:#fff7eb!important}.q-card{background:#fff!important;border:1px solid #d6e0ee!important}.q-body b[style*="green"],.q-body b{font-weight:900}
+@media print{body{background:#fff!important;color:#06172c!important}.detail{max-width:none!important;width:100%!important;padding:0!important}.cover{margin-bottom:14px!important;padding:20px 22px!important}.cover-logo img{height:34px!important}.hero{margin-top:10px!important}.metric-grid{grid-template-columns:repeat(6,1fr)!important;gap:6px!important}.metric{padding:8px!important}.metric span{font-size:16px!important}.card{margin:11px 0!important;padding:14px!important}.area-row{padding:12px 0!important}.tri-bars{height:178px!important}.q-card{break-inside:avoid;page-break-inside:avoid}.section-title{break-after:avoid;page-break-after:avoid}.student-table th{position:static!important}@page{size:A4;margin:11mm}}
+
+/* NPS visual */
+.nps-intro{color:#5f6b7a;font-size:13px;line-height:1.35;margin:0 0 12px}.nps-card{border:1px solid #d6e0ee;border-radius:8px;background:#fff;margin:14px 0;overflow:hidden;break-inside:avoid;page-break-inside:avoid}.nps-card-head{background:#f8fafc;border-bottom:1px solid #d6e0ee;padding:12px 16px}.nps-card-head h4{margin:0;color:#111827;font-size:18px;line-height:1.2}.nps-pill{display:inline-block;margin-top:8px;border:1px solid #d6e0ee;border-radius:999px;background:#fff;color:#40516a;font-weight:800;font-size:12px;padding:4px 10px}.nps-layout{display:grid;grid-template-columns:150px 1fr 230px;gap:22px;align-items:center;padding:18px 18px 16px}.nps-donut{width:118px;height:118px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:auto}.nps-donut-core{width:76px;height:76px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1px #d6e0ee;display:flex;flex-direction:column;align-items:center;justify-content:center}.nps-donut-core strong{font-size:28px;line-height:1}.nps-donut-core span{font-size:10px;font-weight:900;color:#40516a;margin-top:4px}.nps-groups{display:grid;gap:9px}.nps-group{display:grid;grid-template-columns:86px 1fr 86px;gap:10px;align-items:center}.nps-group-name{font-weight:900;color:#111827;font-size:13px}.nps-track{height:15px;border-radius:999px;background:#edf2f7;overflow:hidden}.nps-fill{height:100%;border-radius:999px;min-width:3px}.nps-group-value{font-size:12px;font-weight:900;color:#111827;text-align:right}.nps-rule{color:#5f6b7a;font-weight:800;font-size:12px;line-height:1.35;margin-top:8px}.nps-hist{display:grid;grid-template-columns:repeat(11,1fr);gap:5px;align-items:end;height:105px;border-bottom:2px solid #d6e0ee;padding:0 2px 18px;position:relative}.nps-hbar-wrap{height:82px;display:flex;align-items:end;justify-content:center;position:relative}.nps-hbar{width:18px;border-radius:8px 8px 3px 3px;min-height:3px}.nps-hcount{position:absolute;bottom:100%;font-size:10px;font-weight:900;color:#40516a;margin-bottom:3px}.nps-hlabel{position:absolute;bottom:-17px;font-size:11px;font-weight:800;color:#8a97aa}.nps-note{margin-top:14px;border:1px solid #d6e0ee;border-left:4px solid #0f2744;border-radius:8px;background:#fbfdff;color:#40516a;font-size:12px;line-height:1.35;padding:10px 12px}@media print{.nps-card{margin:12px 0!important}.nps-layout{grid-template-columns:135px 1fr 210px!important;gap:16px!important;padding:14px!important}.nps-donut{width:106px!important;height:106px!important}.nps-donut-core{width:68px!important;height:68px!important}.nps-card-head h4{font-size:15px!important}.nps-hist{height:92px!important}.nps-hbar{width:15px!important}.nps-group{grid-template-columns:78px 1fr 76px!important}.nps-rule,.nps-note{font-size:11px!important}}
+
+
+
+/* Ajuste dos rótulos do histograma NPS */
+.nps-hist{padding-bottom:24px!important}.nps-hlabel{bottom:-24px!important;line-height:1!important}.nps-hbar-wrap{height:82px!important}.nps-hcount{margin-bottom:5px!important}@media print{.nps-hist{padding-bottom:24px!important}.nps-hlabel{bottom:-24px!important}.nps-hbar-wrap{height:82px!important}}
+/* NPS nacional ENAMED */
+.nps-meta-row{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;margin-top:8px!important}.nps-meta-row .nps-pill{margin-top:0!important}.nps-national-badge{display:inline-flex!important;align-items:baseline!important;justify-content:center!important;gap:5px!important;flex:0 0 auto!important;min-width:104px!important;margin:0!important;padding:4px 9px!important;border:1px solid #ff981f!important;border-radius:999px!important;background:#fff7ed!important;box-shadow:inset 3px 0 0 #ff981f!important;line-height:1!important;white-space:nowrap!important}.nps-national-badge span{display:inline!important;color:#9a5a00!important;font-size:8px!important;font-weight:900!important;letter-spacing:.03em!important;text-transform:uppercase!important}.nps-national-badge strong{display:inline!important;color:#ff981f!important;font-size:15px!important;font-weight:900!important;line-height:1!important;margin:0!important}.nps-national-note{border-left-color:#ff981f!important;background:#fffaf3!important}
+/* Barras Likert em laranja */ .q-card .qline .bar{background:#ff981f!important}/* Ajustes barras por área e percepção da prova */
+.area-row .bar{background:#ff981f!important}.q-card .qline{grid-template-columns:minmax(190px,1.05fr) minmax(190px,1.25fr) 86px!important;gap:12px!important}.q-card .qline>div:last-child{white-space:nowrap!important;text-align:right!important;font-weight:800;color:#06172c}.q-card .qline .label{line-height:1.2!important}@media print{.q-card .qline{grid-template-columns:minmax(170px,1fr) minmax(190px,1.2fr) 82px!important;gap:10px!important}.q-card .qline>div:last-child{font-size:11px!important}}/* Ajuste rotulos TRI */
+.tri-bars{padding-bottom:26px!important}.tri-label{position:relative!important;top:12px!important;background:#fff!important;padding:0 2px!important}.tri-zero{bottom:34px!important}@media print{.tri-bars{padding-bottom:24px!important}.tri-label{top:11px!important}}
+/* Resumo por eixo do Questionário do Estudante */
+.qe-axis-summary{border:1px solid #d6e0ee;border-radius:8px;overflow:hidden;margin:14px 0 18px;background:#fff}.qe-axis-table{width:100%;border-collapse:collapse}.qe-axis-table th{background:#f3f6fb!important;color:#06172c!important;text-transform:uppercase;font-size:11px;letter-spacing:.03em}.qe-axis-table td{border-top:1px solid #d6e0ee;padding:12px 14px}.qe-axis-name{font-weight:900;color:#06172c}.qe-axis-count{display:inline-block;margin-top:6px;border:1px solid #d6e0ee;border-radius:999px;padding:3px 9px;color:#40516a;background:#fff;font-weight:800;font-size:11px}.qe-axis-num{font-size:20px;font-weight:900;text-align:center;color:#06172c}.qe-axis-bars{padding:14px}.qe-axis-bar-row{display:grid;grid-template-columns:230px 1fr 44px;gap:12px;align-items:center;margin:10px 0}.qe-axis-bar-row b{font-size:12px;color:#06172c;line-height:1.15}.qe-axis-section{margin:18px 0 8px;padding:10px 14px;background:#fff7eb;border:1px solid #fde0bd;border-radius:8px;color:#06172c;font-weight:900}.qe-axis-section span{display:block;color:#5f6b7a;font-size:11px;font-weight:700;margin-top:3px}@media print{.qe-axis-table th,.qe-axis-table td{padding:8px!important}.qe-axis-num{font-size:17px!important}.qe-axis-bar-row{grid-template-columns:190px 1fr 38px!important;margin:7px 0!important}.qe-axis-section{break-after:avoid;page-break-after:avoid}}
+/* Quebra controlada do resumo por eixo */
+.qe-axis-summary{break-inside:avoid!important;page-break-inside:avoid!important;break-before:page;page-break-before:always}.qe-axis-table tr{break-inside:avoid!important;page-break-inside:avoid!important}.qe-axis-bars{break-inside:avoid!important;page-break-inside:avoid!important}@media screen{.qe-axis-summary{break-before:auto;page-break-before:auto}}/* Capa estratégica ENAMED */
+.cover-page{min-height:calc(297mm - 22mm);display:flex;flex-direction:column;break-after:page;page-break-after:always}.cover{background:#0f2744!important;color:#fff!important;border-radius:9px!important;padding:26px 30px!important;margin:0 0 20px!important}.cover-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}.cover-brand{display:flex;align-items:center;gap:18px;font-weight:900;letter-spacing:.28em;color:#fff}.cover-brand img{height:54px;background:#fff;border-radius:8px;padding:9px 18px}.cover-source{color:rgba(255,255,255,.72);font-style:italic;font-size:13px;margin-top:12px}.cover-title{font-size:34px!important;color:#ff981f!important;font-weight:900!important;line-height:1.04!important;margin:26px 0 10px!important}.cover-subtitle{font-size:15px;line-height:1.45;color:#fff!important;max-width:790px}.cover-course{border-top:1px solid rgba(255,255,255,.22);border-bottom:1px solid rgba(255,255,255,.22);margin:18px 0 14px;padding:15px 0;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}.cover-course h2{margin:0 0 6px;color:#ff981f;font-size:25px;line-height:1.1}.cover-course p{margin:0;color:#e5edf8;line-height:1.35}.cover-concept{background:#ff981f;color:#fff;border-radius:8px;padding:11px 20px;font-weight:900;white-space:nowrap}.cover-inst{color:#e5edf8;font-size:13px;line-height:1.35}.cover-inst b{color:#fff}.cover-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.cover-info{border:1px solid #d6e0ee;border-radius:8px;background:#f8fafc;padding:16px 18px;color:#26364c}.cover-info.wide{grid-column:1/-1}.cover-info h3{margin:0 0 8px;color:#ff981f;font-size:17px;line-height:1.15}.cover-info p{margin:0;font-size:13px;line-height:1.43;color:#26364c}.cover-footer{margin-top:auto;border-top:3px solid #0f2744;padding-top:10px;display:flex;justify-content:space-between;gap:20px;color:#5f6b7a;font-size:11px}.cover-footer b{color:#0f2744}.cover-footer .edu{color:#ff981f}@media print{.cover-page{min-height:calc(297mm - 22mm)!important}.cover{padding:24px 28px!important;margin-bottom:18px!important}.cover-brand img{height:48px!important}.cover-title{font-size:31px!important}.cover-course h2{font-size:22px!important}.cover-info{padding:13px 15px!important}.cover-info p{font-size:12px!important}.cover-grid{gap:12px!important}.cover-footer{font-size:10px!important}}/* Ajuste distribuição dos cards de métricas */
+.metric-grid{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:10px!important;align-items:stretch!important}.metric{min-height:70px!important;padding:10px 12px!important;display:flex!important;flex-direction:column!important;justify-content:center!important}.metric b{font-size:10px!important;line-height:1.15!important}.metric span{font-size:18px!important;line-height:1.15!important}@media print{.metric-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:8px!important}.metric{min-height:64px!important;padding:9px 10px!important}.metric span{font-size:16px!important}.metric b{font-size:9px!important}}/* Compactar TRI para subir na página */
+.tri-bars{height:150px!important;padding-top:16px!important;padding-bottom:22px!important}.tri-bar{max-height:92px!important}.tri-label{top:10px!important}.tri-zero{bottom:30px!important}.triChartCompact{} .card:has(.tri-bars){padding-bottom:16px!important;margin-top:10px!important}.card:has(.tri-bars) .note{margin-top:20px!important;padding:12px 14px!important;line-height:1.45!important}.card:has(.tri-bars) h3{margin-bottom:8px!important}.card:has(.tri-bars) p[style*="color:var(--muted)"]{margin:0 0 10px!important}@media print{.tri-bars{height:132px!important;padding-top:14px!important;padding-bottom:22px!important}.tri-bar{max-height:78px!important}.card:has(.tri-bars){padding:11px!important;margin-top:8px!important}.card:has(.tri-bars) .note{margin-top:18px!important;font-size:10px!important;line-height:1.35!important;padding:9px 11px!important}.card:has(.tri-bars) h3{font-size:17px!important}.card:has(.tri-bars) p[style*="color:var(--muted)"]{font-size:11px!important}}/* Otimização área médica e TRI */
+.area-row{padding:9px 0!important;grid-template-columns:1.25fr 90px 1fr 58px!important}.area-name{font-size:13px!important}.area-score{font-size:18px!important}.area-score small{font-size:12px!important}.card:has(.area-row){padding:13px!important;margin-bottom:10px!important}.card:has(.area-row) h3{font-size:18px!important;margin-bottom:10px!important}.card:has(.tri-bars){padding:15px 16px 18px!important;margin-top:8px!important}.tri-bars{height:172px!important;padding:16px 12px 34px!important;align-items:end!important}.tri-label{top:20px!important;font-size:10px!important;background:#fff!important}.tri-zero{bottom:45px!important}.card:has(.tri-bars) .note{margin-top:28px!important}@media print{.area-row{padding:7px 0!important}.card:has(.area-row){padding:10px!important}.area-name{font-size:11px!important}.area-score{font-size:15px!important}.card:has(.tri-bars){padding:12px 13px 15px!important}.tri-bars{height:150px!important;padding-bottom:32px!important}.tri-label{top:18px!important;font-size:9px!important}.tri-zero{bottom:42px!important}.card:has(.tri-bars) .note{margin-top:24px!important}}/* Modelo visual TRI completo */
+.tri-total-pill{float:right;border:1px solid #ffbd73;border-radius:999px;background:#fff7eb;color:#c96800;font-weight:900;padding:6px 12px;font-size:13px}.tri-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.tri-summary-card{border-radius:9px;padding:14px 16px;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;border:1px solid}.tri-summary-card .ico{width:32px;height:32px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px}.tri-summary-card b{display:block;font-size:14px}.tri-summary-card strong{display:block;font-size:17px;color:#06172c;margin-top:3px}.tri-summary-card span{display:block;font-weight:900;margin-top:3px}.tri-summary-card.low{background:#fff5f5;border-color:#fecaca;color:#c81e1e}.tri-summary-card.mid{background:#fff9e8;border-color:#fbbf24;color:#b36b00}.tri-summary-card.high{background:#ecfdf5;border-color:#86efac;color:#047857}.tri-bars{border-bottom:3px solid #0f2744!important}.tri-label{top:18px!important}.tri-zero em{font-size:11px!important}.card:has(.tri-bars) .note{border-left-width:5px!important;font-size:13px!important}.tri-yaxis{position:absolute;left:-24px;top:0;bottom:34px;display:flex;flex-direction:column;justify-content:space-between;color:#60708a;font-size:11px}@media print{.tri-total-pill{font-size:11px!important;padding:5px 10px!important}.tri-summary{gap:8px!important;margin:12px 0!important}.tri-summary-card{padding:10px 12px!important;grid-template-columns:28px 1fr!important}.tri-summary-card .ico{width:26px!important;height:26px!important}.tri-summary-card strong{font-size:14px!important}.tri-summary-card b,.tri-summary-card span{font-size:11px!important}.card:has(.tri-bars) .note{font-size:10px!important}}/* Grafico vertical areas medicas */
+.area-vertical-card{break-inside:avoid;page-break-inside:avoid}.area-vertical-chart{height:230px;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:end;border-left:1px solid #d6e0ee;border-bottom:3px solid #0f2744;padding:22px 14px 38px;margin-top:10px;background:repeating-linear-gradient(to top,#fff 0,#fff 36px,#edf2f7 37px);position:relative}.area-vbar-wrap{height:160px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;position:relative}.area-vvalue{position:absolute;bottom:calc(100% + 6px);font-weight:900;color:#ff7a1a;font-size:14px}.area-vbar{width:56px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#ff981f,#ff7a1a);min-height:5px}.area-vlabel{position:absolute;top:170px;text-align:center;font-weight:900;color:#06172c;font-size:10px;line-height:1.15;width:110px}.area-vnote{color:#5f6b7a;font-size:12px;margin:8px 0 0}@media print{.area-vertical-chart{height:185px;padding-bottom:34px;gap:12px}.area-vbar-wrap{height:125px}.area-vbar{width:42px}.area-vlabel{top:132px;font-size:8.5px;width:88px}.area-vvalue{font-size:11px}.area-vnote{font-size:10px}}/* Refinamento barras verticais area medica */
+.area-vertical-chart{height:285px!important;padding:26px 18px 66px!important;gap:20px!important}.area-vbar-wrap{height:205px!important}.area-vbar{width:62px!important}.area-vlabel{top:214px!important;width:112px!important;font-size:9.5px!important;line-height:1.08!important}.area-vvalue{font-size:13px!important;bottom:calc(100% + 8px)!important}@media print{.area-vertical-chart{height:230px!important;padding-bottom:58px!important}.area-vbar-wrap{height:165px!important}.area-vbar{width:50px!important}.area-vlabel{top:172px!important;width:92px!important;font-size:8px!important}.area-vvalue{font-size:10px!important}}/* Aumentar barras do TRI */
+.card:has(.tri-bars){padding-bottom:20px!important}.tri-bars{height:225px!important;padding-top:20px!important;padding-bottom:38px!important}.tri-bin{height:100%!important}.tri-bar{width:72%!important}.tri-label{top:22px!important}.tri-zero{bottom:50px!important}.tri-yaxis{bottom:42px!important}.tri-summary{margin-top:18px!important}@media print{.tri-bars{height:190px!important;padding-bottom:34px!important}.tri-bar{width:68%!important}.tri-label{top:19px!important}.tri-zero{bottom:46px!important}.tri-yaxis{bottom:39px!important}}/* Aproximar tabela de estudantes do TRI */
+.student-performance-card{break-before:auto!important;page-break-before:auto!important;margin-top:18px!important}@media print{.student-performance-card{break-before:auto!important;page-break-before:auto!important;margin-top:14px!important}}/* Permitir tabela de estudantes subir apos TRI */
+.detail .student-performance-card.card{break-before:auto!important;page-break-before:auto!important;break-inside:auto!important;page-break-inside:auto!important;margin-top:12px!important}.student-performance-card table,.student-performance-card thead,.student-performance-card tbody{break-inside:auto!important;page-break-inside:auto!important}.student-performance-card tr{break-inside:avoid!important;page-break-inside:avoid!important}.student-performance-card h3{break-after:avoid!important;page-break-after:avoid!important}.student-performance-card p{break-after:avoid!important;page-break-after:avoid!important}@media print{.detail .student-performance-card.card{break-before:auto!important;page-break-before:auto!important;break-inside:auto!important;page-break-inside:auto!important;margin-top:10px!important}.student-performance-card .student-table th{position:static!important}}/* Ordenacao e cores area vertical */
+.area-vvalue{color:#06172c!important}.area-vbar{background:var(--area-color,#ff981f)!important}
+/* Distribuição da Nota Geral */
+.nota-dist-card{break-inside:avoid;page-break-inside:avoid;margin-top:12px!important}
+.nota-dist-card h3{position:relative;margin-bottom:6px!important}.nota-dist-legend{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px;margin:8px 0 6px}.nota-dist-legend b{color:#0f2744}.nota-bars{height:188px;border-left:1px solid var(--line);border-bottom:4px solid var(--navy);display:flex;align-items:flex-end;gap:14px;padding:22px 12px 28px 44px;position:relative;background:repeating-linear-gradient(to bottom,transparent 0,transparent 37px,#edf2f7 38px)}.nota-yaxis{position:absolute;left:8px;top:18px;bottom:26px;display:flex;flex-direction:column;justify-content:space-between;color:var(--muted);font-size:11px}.nota-bin{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative;height:100%}.nota-bin strong{font-size:16px;margin-bottom:6px}.nota-bin>span:not(.nota-cutoff){position:absolute;bottom:-20px;font-size:10px;color:#0f2744;white-space:nowrap}.nota-bar{width:56px;border-radius:7px 7px 0 0;box-shadow:0 10px 18px rgba(15,39,68,.08);opacity:.96}.nota-cutoff{position:absolute;left:-13px;bottom:0;height:132px;border-left:3px dashed #ef4444;z-index:3}.nota-cutoff em{position:absolute;top:-18px;left:-8px;font-style:normal;color:#ef4444;font-weight:800;background:#fff;padding:0 3px}.nota-trend{position:absolute;left:52px;right:10px;bottom:28px;height:142px;width:calc(100% - 72px);pointer-events:none;z-index:4}.nota-trend polyline{fill:none;stroke:#ef4444;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.45;filter:drop-shadow(0 1px 2px rgba(239,68,68,.12))}.nota-dist-card .note{margin-top:22px!important}
+@media print{.nota-bars{height:168px;padding-bottom:26px}.nota-bar{width:46px}.nota-dist-card .note{font-size:10px!important;line-height:1.35!important}.nota-dist-legend{font-size:11px}}
+
+
+/* Ajuste de sobreposição da Distribuição da Nota Geral */
+.nota-dist-card .nota-dist-legend{margin:12px 0 14px!important;padding:0 4px;font-size:11px!important;position:relative;z-index:6}.nota-dist-card .nota-dist-legend span:nth-child(2){transform:translateY(10px)}.nota-bars{height:210px!important;padding-top:38px!important;padding-bottom:32px!important;overflow:visible}.nota-bin strong{position:relative;z-index:7;background:#fff;padding:0 4px;border-radius:4px;margin-bottom:9px}.nota-trend{bottom:46px!important;height:128px!important;z-index:3}.nota-cutoff{height:142px!important;bottom:0!important;z-index:5}.nota-cutoff em{top:-24px!important;left:-10px!important;background:#fff;color:#ef4444;border-radius:6px;padding:1px 5px}.nota-bar{position:relative;z-index:4}.nota-dist-card .note{margin-top:26px!important}
+@media print{.nota-dist-card .nota-dist-legend{margin-bottom:12px!important}.nota-dist-card .nota-dist-legend span:nth-child(2){transform:translateY(8px)}.nota-bars{height:190px!important;padding-top:34px!important}.nota-trend{bottom:44px!important;height:116px!important}.nota-cutoff{height:128px!important}.nota-bin strong{margin-bottom:8px}.nota-dist-card .note{margin-top:22px!important}}
+
+
+/* Iniciar Proficiência e Desempenho em nova página */
+@media print{.student-performance-card{break-before:page!important;page-break-before:always!important;margin-top:0!important}}
+
+
+/* Quebra firme antes da tabela de desempenho */
+@media print{
+  .nota-dist-card{break-after:auto!important;page-break-after:auto!important;margin-bottom:8px!important}
+  .student-performance-card{break-before:page!important;page-break-before:always!important;margin-top:0!important;break-inside:auto!important;page-break-inside:auto!important}
+  .student-performance-card h3,.student-performance-card p{break-after:avoid!important;page-break-after:avoid!important}
+  .student-performance-card table{break-before:avoid!important;page-break-before:avoid!important}
+}
+
+.padrao-card{display:grid!important;grid-template-columns:minmax(0,1fr) 210px!important;gap:28px!important;align-items:center!important;padding:24px 30px!important;border-radius:12px!important;box-shadow:0 8px 24px rgba(15,39,68,.08)!important}.padrao-card h3{font-size:24px!important;margin-bottom:10px!important}.padrao-card .padrao-sub{font-size:15px!important;color:#5b6b82!important;margin:0 0 18px!important}.padrao-legend-item{display:grid!important;grid-template-columns:28px minmax(0,1fr)!important;gap:14px!important;align-items:start!important;padding:10px 0!important}.padrao-legend-item+.padrao-legend-item{border-top:1px solid #edf2f7!important}.padrao-legend-dot{width:22px!important;height:22px!important;border-radius:50%!important;margin-top:2px!important;box-shadow:0 4px 10px rgba(15,39,68,.10)!important}.padrao-legend-title{display:block!important;font-size:17px!important;font-weight:900!important;color:#0b1b32!important;line-height:1.15!important}.padrao-legend-value{display:block!important;margin-top:5px!important;font-size:15px!important;color:#50627c!important}.padrao-card .donut{width:170px!important;height:170px!important;justify-self:center!important;box-shadow:0 6px 16px rgba(15,39,68,.10)!important}.padrao-card .donut>div{width:94px!important;height:94px!important}.padrao-card .donut strong{font-size:36px!important;line-height:1!important;color:#07182e!important}.padrao-card .donut span{font-size:17px!important;color:#22324a!important}@media print{.padrao-card{grid-template-columns:minmax(0,1fr) 170px!important;padding:18px 22px!important;gap:20px!important}.padrao-card h3{font-size:20px!important}.padrao-card .donut{width:145px!important;height:145px!important}.padrao-card .donut>div{width:82px!important;height:82px!important}.padrao-card .donut strong{font-size:30px!important}.padrao-card .donut span{font-size:14px!important}}.med-area-card{padding:24px 28px!important;border-radius:14px!important;box-shadow:0 10px 28px rgba(15,39,68,.08)!important}.med-area-title{display:flex!important;align-items:flex-start!important;gap:14px!important;margin-bottom:20px!important}.med-area-title-icon{width:34px!important;height:34px!important;border-radius:9px!important;background:#efe7ff!important;color:#6d4cff!important;display:flex!important;align-items:center!important;justify-content:center!important;font-weight:900!important;font-size:20px!important}.med-area-title h3{margin:0!important;font-size:24px!important;line-height:1.1!important}.med-area-title p{margin:6px 0 0!important;color:#50627c!important;font-size:14px!important}.med-area-table{display:grid!important;gap:0!important}.med-area-header,.med-area-row{display:grid!important;grid-template-columns:38px minmax(190px,1.35fr) 130px minmax(180px,1.25fr) 82px!important;gap:16px!important;align-items:center!important}.med-area-header{padding:0 0 10px!important;border-bottom:1px solid #dbe4f0!important;color:#50627c!important;font-size:12px!important;font-weight:800!important}.med-area-row{padding:13px 0!important;border-bottom:1px solid #e7edf5!important}.med-area-row:last-child{border-bottom:0!important}.med-area-icon{width:28px!important;height:28px!important;border-radius:50%!important;background:#efe7ff!important;color:#6d4cff!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:15px!important;font-weight:900!important}.med-area-name{font-size:14px!important;font-weight:700!important;color:#07182e!important;line-height:1.2!important}.med-area-score-pill{display:inline-flex!important;align-items:baseline!important;gap:4px!important;background:#f2f5f9!important;border:1px solid #e2e8f0!important;border-radius:7px!important;padding:7px 12px!important;font-size:18px!important;font-weight:900!important;color:#07182e!important;white-space:nowrap!important}.med-area-score-pill small{font-size:12px!important;font-weight:700!important;color:#60708a!important}.med-area-card .track{height:13px!important;border:0!important;background:#e9eef5!important}.med-area-card .bar{background:linear-gradient(90deg,#ff981f,#ffb347)!important}.med-area-pct{text-align:right!important;font-size:16px!important;font-weight:900!important;color:#07182e!important}@media print{.med-area-card{padding:18px 22px!important}.med-area-title h3{font-size:20px!important}.med-area-header,.med-area-row{grid-template-columns:32px minmax(170px,1.3fr) 110px minmax(150px,1.15fr) 70px!important;gap:12px!important}.med-area-row{padding:10px 0!important}.med-area-score-pill{font-size:15px!important;padding:5px 9px!important}.med-area-pct{font-size:14px!important}.med-area-icon{width:24px!important;height:24px!important;font-size:12px!important}}.metric-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:22px!important;margin:22px 0 24px!important}.metric{border:1px solid #e5edf7!important;background:#fff!important;border-radius:14px!important;padding:22px 24px!important;min-height:118px!important;box-shadow:0 10px 24px rgba(15,39,68,.10)!important;display:flex!important;flex-direction:column!important;justify-content:center!important}.metric b{display:block!important;font-size:17px!important;line-height:1.1!important;text-transform:uppercase!important;letter-spacing:.045em!important;color:#556784!important;font-weight:800!important}.metric span{display:block!important;margin-top:22px!important;font-size:36px!important;line-height:1!important;font-weight:900!important;color:#07182e!important;letter-spacing:-.02em!important}@media print{.metric-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important;margin:16px 0 18px!important}.metric{min-height:82px!important;padding:13px 14px!important;border-radius:8px!important;box-shadow:0 4px 12px rgba(15,39,68,.08)!important}.metric b{font-size:10px!important;letter-spacing:.04em!important}.metric span{font-size:20px!important;margin-top:10px!important}}.med-area-bars{display:grid!important;gap:6px!important}.med-area-mini-row{display:grid!important;grid-template-columns:58px minmax(0,1fr)!important;gap:8px!important;align-items:center!important}.med-area-mini-row span{font-size:10px!important;font-weight:900!important;color:#ff981f!important;text-transform:uppercase!important;letter-spacing:.04em!important}.med-area-mini-row.national span{color:#2f65b5!important}.med-area-mini-row .track{height:9px!important}.med-area-mini-row.national .track{background:#eef3f9!important}.med-area-card .bar.national-bar{background:linear-gradient(90deg,#2f65b5,#6fa8ff)!important}.med-area-pct{display:flex!important;flex-direction:column!important;gap:3px!important;align-items:flex-end!important}.med-area-pct b{font-size:16px!important;color:#07182e!important}.med-area-pct small{font-size:11px!important;color:#2f65b5!important;font-weight:900!important;white-space:nowrap!important}@media print{.med-area-mini-row{grid-template-columns:46px minmax(0,1fr)!important;gap:6px!important}.med-area-mini-row span{font-size:8px!important}.med-area-mini-row .track{height:7px!important}.med-area-pct b{font-size:13px!important}.med-area-pct small{font-size:9px!important}}
+/* Cards de metricas compactos tambem na tela */
+.metric-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important;margin:18px 0 20px!important}
+.metric{border:1px solid #d8e2ef!important;background:#fff!important;border-radius:8px!important;padding:14px 16px!important;min-height:74px!important;box-shadow:0 5px 14px rgba(15,39,68,.06)!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+.metric b{display:block!important;font-size:11px!important;line-height:1.05!important;text-transform:uppercase!important;letter-spacing:.055em!important;color:#566984!important;font-weight:900!important}
+.metric span{display:block!important;margin-top:9px!important;font-size:22px!important;line-height:1!important;font-weight:900!important;color:#07182e!important;letter-spacing:-.02em!important}
+@media print{.metric-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important;margin:16px 0 18px!important}.metric{min-height:70px!important;padding:12px 13px!important;border-radius:8px!important}.metric b{font-size:10px!important}.metric span{font-size:20px!important;margin-top:9px!important}}
+
+/* Badges de proficiencia na distribuicao da nota */
+.nota-proficiency-badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;margin:-2px 0 8px}
+.nota-prof-badge{display:inline-flex;align-items:center;gap:7px;border:1px solid #d8e2ef;border-radius:999px;background:#fff;padding:6px 10px;font-size:11px;font-weight:900;line-height:1;white-space:nowrap;color:#0f2744}
+.nota-prof-badge b{text-transform:uppercase;letter-spacing:.045em;font-size:10px}
+.nota-prof-badge strong{font-size:15px;color:#07182e}
+.nota-prof-badge small{font-size:10px;opacity:.78;color:inherit}
+.nota-prof-badge.good{background:#ecfdf5;border-color:#86efac;color:#047857}
+.nota-prof-badge.warn{background:#fff7ed;border-color:#fed7aa;color:#c2410c}
+@media print{.nota-proficiency-badges{gap:6px;margin:-1px 0 6px}.nota-prof-badge{padding:5px 8px}.nota-prof-badge b{font-size:8.5px}.nota-prof-badge strong{font-size:12px}.nota-prof-badge small{font-size:8.5px}}
+
+/* Comparativo nacional no Questionario do Estudante */
+.qe-national-num{color:#7c3aed!important}
+.qe-axis-compare-row{grid-template-columns:minmax(170px,.9fr) minmax(280px,1.7fr)!important;align-items:center!important}
+.qe-axis-compare-bars{display:grid;gap:6px;width:100%}
+.qe-mini-row{display:grid;grid-template-columns:58px 1fr 36px;gap:8px;align-items:center}
+.qe-mini-row span{font-size:9px;text-transform:uppercase;letter-spacing:.06em;font-weight:900;color:#ff981f}
+.qe-mini-row.national span{color:#7c3aed}
+.qe-mini-row strong{font-size:12px;color:#06172c;text-align:right}
+.qe-mini-row .track{height:8px!important;background:#e8eef5!important;border-radius:999px;overflow:hidden}
+.qe-national-note{margin:10px 0 0;padding:9px 12px;border-left:4px solid #7c3aed;background:#f8fbff;border:1px solid #dbe7f7;border-radius:8px;color:#52627a;font-size:11px;line-height:1.35}
+.q-scoreline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:8px;color:#06172c}
+.q-scoreline b{font-size:14px}.q-scoreline span{border:1px solid #cfe0f7;background:#eff6ff;color:#6d28d9;border-radius:999px;padding:3px 8px;font-weight:900;font-size:11px}.q-scoreline em{font-style:normal;color:#5f6b7a;font-size:12px}
+@media print{.qe-axis-compare-row{grid-template-columns:minmax(145px,.85fr) minmax(230px,1.5fr)!important}.qe-mini-row{grid-template-columns:46px 1fr 30px;gap:6px}.qe-mini-row span{font-size:7.5px}.qe-mini-row strong{font-size:10px}.qe-national-note{font-size:9px;padding:7px 9px}.q-scoreline{gap:6px}.q-scoreline b{font-size:11px}.q-scoreline span,.q-scoreline em{font-size:9px}}
+
+/* Ajuste final dos cards de metricas na impressao */
+@media print{
+  .metric-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:9px!important;margin:12px 0 14px!important;align-items:stretch!important}
+  .metric{min-height:52px!important;height:auto!important;padding:8px 10px!important;border-radius:6px!important;box-shadow:0 2px 7px rgba(15,39,68,.05)!important;justify-content:center!important}
+  .metric b{font-size:8.5px!important;line-height:1.1!important;letter-spacing:.045em!important;color:#566984!important;white-space:normal!important}
+  .metric span{font-size:15px!important;line-height:1.04!important;margin-top:5px!important;letter-spacing:-.01em!important;color:#07182e!important}
+}
+
+/* Ajuste de cor nacional do Questionario do Estudante */
+.qe-national-num{color:#7c3aed!important}
+.qe-mini-row.national span{color:#7c3aed!important}
+.qe-mini-row.national .bar{background:linear-gradient(90deg,#7c3aed,#a78bfa)!important}
+.q-scoreline span{background:#f5f3ff!important;border-color:#ddd6fe!important;color:#6d28d9!important}
+
+/* Ajuste visual do percentual no card Proficientes */
+.metric b{white-space:nowrap!important}
+.metric span{white-space:nowrap!important}
+.metric-muted-pct{font-size:.76em!important;color:#667085!important;font-weight:800!important;letter-spacing:0!important;vertical-align:baseline!important}
+@media print{
+  .metric b{white-space:nowrap!important}
+  .metric span{white-space:nowrap!important}
+  .metric-muted-pct{font-size:.74em!important;color:#6b7280!important}
+}
+
+
+/* Terceira referencia por conceito ENAMED na analise por area */
+.med-area-mini-row.concept span,.med-area-pct .concept-ref{color:#7c3aed!important}.med-area-mini-row .concept-bar{background:#8b5cf6!important}.med-area-pct small.concept-ref{display:block!important;margin-top:2px!important;font-weight:900!important}
+@media print{.med-area-mini-row.concept span,.med-area-pct .concept-ref{color:#7c3aed!important}}
+
+/* Deixa a referencia ENAMED com o mesmo desenho das demais barras */
+.med-area-mini-row.concept{background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;box-shadow:none!important}
+.med-area-mini-row.concept .track{background:#e8eef6!important;border:0!important;box-shadow:none!important}
+.med-area-mini-row.concept .bar,.med-area-mini-row .concept-bar{background:#8b5cf6!important;border-radius:999px!important;box-shadow:none!important}
+.med-area-mini-row.concept span{color:#7c3aed!important;background:transparent!important;border:0!important;padding:0!important;box-shadow:none!important}
+.med-area-pct .concept-ref{color:#7c3aed!important;background:transparent!important;border:0!important;padding:0!important;box-shadow:none!important}
+@media print{
+  .med-area-mini-row.concept{background:transparent!important;border:0!important;padding:0!important;box-shadow:none!important}
+  .med-area-mini-row.concept .track{background:#e8eef6!important;border:0!important;box-shadow:none!important}
+}
+
+
+.item-analysis-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;margin:18px 0;box-shadow:0 8px 24px rgba(15,39,68,.05);break-inside:avoid}.item-analysis-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}.item-analysis-title{display:flex;gap:12px;align-items:flex-start}.item-analysis-icon{width:34px;height:34px;border-radius:10px;background:#f3e8ff;color:#7c3aed;display:grid;place-items:center;font-weight:900}.item-analysis-card h3{margin:0;color:#06172c;font-size:22px}.item-analysis-card p{margin:4px 0 0;color:#40516a;font-size:13px}.item-pill{border:1px solid #fed7aa;background:#fff7ed;color:#ea580c;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:900;white-space:nowrap}.content-analysis-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin-top:12px}.content-rows{border-top:1px solid var(--line)}.content-row{display:grid;grid-template-columns:minmax(190px,1.2fr) 82px minmax(210px,1fr) 86px;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid #e7edf5}.content-row strong{font-size:13px;color:#06172c}.content-row small{display:block;color:#64748b;margin-top:2px}.item-bar-stack{display:grid;gap:5px}.item-mini-row{display:grid;grid-template-columns:64px 1fr;gap:8px;align-items:center}.item-mini-row span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:900}.item-mini-row .curso{color:var(--orange)}.item-mini-row .nac{color:#7c3aed}.track.slim{height:9px;border-radius:99px;background:#eaf0f6;overflow:hidden}.track.slim .bar{height:100%;border-radius:99px}.item-rate{font-weight:900;font-size:16px;color:#06172c;text-align:right}.level-box{border:1px solid var(--line);border-radius:12px;background:#f8fbff;padding:14px}.level-box h4,.question-box h4{margin:0 0 10px;color:#06172c;font-size:15px}.level-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.level-chip{border-radius:10px;padding:9px 10px;background:#fff;border:1px solid #e2e8f0}.level-chip b{display:block;font-size:16px;color:#06172c}.level-chip span{font-size:11px;color:#64748b;font-weight:800}.level-chip.muito-facil{border-color:#86efac;background:#f0fdf4}.level-chip.facil{border-color:#bbf7d0;background:#f0fdf4}.level-chip.medio{border-color:#fde68a;background:#fffbeb}.level-chip.dificil{border-color:#fecaca;background:#fff7ed}.level-chip.muito-dificil{border-color:#fca5a5;background:#fef2f2}.question-box{margin-top:12px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px}.question-item{display:grid;grid-template-columns:42px 1fr 70px;gap:10px;align-items:center;padding:9px 0;border-top:1px solid #edf2f7}.question-item:first-of-type{border-top:0}.question-num{width:32px;height:32px;border-radius:10px;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:900}.question-item strong{font-size:12px;color:#06172c}.question-item small{color:#64748b;display:block;margin-top:2px}.question-rate{text-align:right;font-weight:900;color:#c2410c}.item-note{margin-top:14px;border-left:4px solid var(--orange);background:#fff7ed;border-radius:8px;padding:10px 12px;color:#40516a;font-size:12px}@media(max-width:900px){.content-analysis-grid{grid-template-columns:1fr}.content-row{grid-template-columns:1fr}.item-rate{text-align:left}}@media print{.item-analysis-card{box-shadow:none;page-break-inside:avoid}.content-analysis-grid{grid-template-columns:1.2fr .8fr}.content-row{grid-template-columns:1.15fr 70px 1fr 62px;gap:10px;padding:8px 0}.item-analysis-card h3{font-size:18px}.question-box{break-inside:avoid}.question-item{padding:6px 0}.level-grid{gap:6px}.level-chip{padding:7px}.item-note{font-size:10px}}
+
+
+.question-catalog{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.catalog-item{border:1px solid #e2e8f0;border-radius:10px;background:#fff;padding:10px 11px;display:grid;grid-template-columns:42px 1fr;gap:10px;align-items:start;break-inside:avoid}.catalog-num{width:34px;height:34px;border-radius:10px;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:900;font-size:15px}.catalog-content strong{display:block;color:#06172c;font-size:12px;line-height:1.22}.catalog-meta{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin:6px 0 7px}.level-badge{border-radius:999px;padding:3px 7px;font-size:10px;font-weight:900;border:1px solid #e2e8f0}.level-badge.muito-facil{background:#dcfce7;color:#047857;border-color:#86efac}.level-badge.facil{background:#ecfdf5;color:#15803d;border-color:#bbf7d0}.level-badge.medio{background:#fffbeb;color:#b45309;border-color:#fde68a}.level-badge.dificil{background:#fff7ed;color:#c2410c;border-color:#fed7aa}.level-badge.muito-dificil{background:#fef2f2;color:#b91c1c;border-color:#fecaca}.catalog-rates{display:grid;grid-template-columns:1fr 1fr;gap:7px}.rate-pill{border:1px solid #dbe4ef;border-radius:8px;background:#f8fbff;padding:6px 7px}.rate-pill span{display:block;text-transform:uppercase;letter-spacing:.07em;font-weight:900;font-size:9px;color:#64748b}.rate-pill b{display:block;margin-top:2px;font-size:14px;color:#06172c}.rate-pill.course b{color:var(--orange)}.rate-pill.national b{color:#7c3aed}.catalog-summary{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}.catalog-summary .level-chip{min-height:54px}@media(max-width:900px){.question-catalog{grid-template-columns:1fr}.catalog-summary{grid-template-columns:1fr 1fr}}@media print{.question-catalog{grid-template-columns:1fr 1fr;gap:7px}.catalog-item{padding:7px;grid-template-columns:34px 1fr}.catalog-num{width:28px;height:28px;font-size:12px}.catalog-content strong{font-size:10px}.catalog-meta{margin:4px 0}.rate-pill{padding:4px}.rate-pill b{font-size:11px}.level-badge{font-size:8px;padding:2px 5px}.catalog-summary{grid-template-columns:repeat(5,1fr);gap:5px}}
+
+
+.catalog-rates{display:flex;align-items:center;gap:8px;margin-top:5px}.rate-pill{border:0!important;background:transparent!important;padding:0!important;display:inline-flex;align-items:baseline;gap:4px}.rate-pill span{display:inline!important;font-size:9px!important;letter-spacing:.07em;text-transform:uppercase;font-weight:900;color:#64748b}.rate-pill b{display:inline!important;margin:0!important;font-size:12px!important}.rate-pill.course span,.rate-pill.course b{color:var(--orange)!important}.rate-pill.national span,.rate-pill.national b{color:#7c3aed!important}.rate-pill.national:before{content:'•';color:#cbd5e1;margin-right:1px}.catalog-item{padding:8px 9px}.catalog-content strong{font-size:11px}.catalog-meta{margin:4px 0 3px}.catalog-num{width:30px;height:30px;font-size:13px;border-radius:9px}@media print{.catalog-rates{gap:6px}.rate-pill b{font-size:10px!important}.rate-pill span{font-size:7px!important}.catalog-content strong{font-size:9px}.catalog-item{padding:5px 6px}.catalog-num{width:24px;height:24px;font-size:10px}}
+
+
+.catalog-rates{display:grid!important;grid-template-columns:1fr 1fr!important;gap:6px!important;margin-top:6px!important}.rate-pill{border:1px solid #dbe4ef!important;background:#f8fbff!important;border-radius:7px!important;padding:5px 7px!important;display:block!important}.rate-pill span{display:block!important;font-size:8px!important;letter-spacing:.07em;text-transform:uppercase;font-weight:900;color:#64748b!important;line-height:1}.rate-pill b{display:block!important;margin-top:2px!important;font-size:12px!important;line-height:1.1}.rate-pill.course{border-color:#fed7aa!important;background:#fff7ed!important}.rate-pill.course span,.rate-pill.course b{color:var(--orange)!important}.rate-pill.national{border-color:#ddd6fe!important;background:#f5f3ff!important}.rate-pill.national span,.rate-pill.national b{color:#7c3aed!important}.rate-pill.national:before{content:none!important}@media print{.catalog-rates{gap:4px!important}.rate-pill{padding:3px 5px!important}.rate-pill span{font-size:6.8px!important}.rate-pill b{font-size:9.5px!important}}
+
+/* question-rate-sidecards-v1 */
+.catalog-content{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;column-gap:10px!important;align-items:start!important}
+.catalog-content>strong{grid-column:1!important;grid-row:1!important}
+.catalog-content>.catalog-meta{grid-column:1!important;grid-row:2!important;margin:4px 0 0!important}
+.catalog-content>.catalog-rates{grid-column:2!important;grid-row:1 / span 2!important;align-self:center!important;display:grid!important;grid-template-columns:repeat(2,52px)!important;gap:5px!important;margin:0!important}
+.catalog-content .rate-pill{min-width:0!important;width:52px!important;min-height:38px!important;padding:5px 4px!important;border-radius:7px!important;text-align:center!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important}
+.catalog-content .rate-pill span{font-size:6.8px!important;line-height:1!important;letter-spacing:.05em!important;white-space:nowrap!important}
+.catalog-content .rate-pill b{font-size:11px!important;line-height:1.05!important;margin-top:3px!important;white-space:nowrap!important}
+@media(max-width:900px){.catalog-content{grid-template-columns:1fr!important}.catalog-content>.catalog-rates{grid-column:1!important;grid-row:auto!important;grid-template-columns:repeat(2,58px)!important;margin-top:6px!important}.catalog-content .rate-pill{width:58px!important}}
+@media print{.catalog-content{column-gap:6px!important}.catalog-content>.catalog-rates{grid-template-columns:repeat(2,42px)!important;gap:3px!important}.catalog-content .rate-pill{width:42px!important;min-height:28px!important;padding:3px 2px!important}.catalog-content .rate-pill span{font-size:5.6px!important}.catalog-content .rate-pill b{font-size:8.5px!important}}
+/* print-question-sidecards-v2 */
+@media print{
+  .question-catalog{grid-template-columns:1fr 1fr!important;gap:7px!important}
+  .question-catalog .catalog-item{grid-template-columns:30px minmax(0,1fr)!important;gap:7px!important;padding:6px 7px!important;align-items:center!important}
+  .question-catalog .catalog-num{width:25px!important;height:25px!important;border-radius:8px!important;font-size:10px!important}
+  .question-catalog .catalog-content{display:grid!important;grid-template-columns:minmax(0,1fr) 98px!important;grid-template-rows:auto auto!important;column-gap:7px!important;align-items:center!important}
+  .question-catalog .catalog-content>strong{grid-column:1!important;grid-row:1!important;font-size:7.8px!important;line-height:1.12!important;min-width:0!important}
+  .question-catalog .catalog-content>.catalog-meta{grid-column:1!important;grid-row:2!important;margin:2px 0 0!important;display:flex!important;align-items:center!important;gap:4px!important;flex-wrap:wrap!important}
+  .question-catalog .catalog-content>.catalog-rates{grid-column:2!important;grid-row:1 / span 2!important;display:grid!important;grid-template-columns:repeat(2,46px)!important;gap:5px!important;margin:0!important;align-self:center!important;justify-self:end!important}
+  .question-catalog .catalog-content .rate-pill{width:46px!important;min-height:31px!important;padding:3px 2px!important;border-radius:6px!important;text-align:center!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important}
+  .question-catalog .catalog-content .rate-pill span{display:block!important;font-size:5.3px!important;line-height:1!important;letter-spacing:.04em!important;white-space:nowrap!important}
+  .question-catalog .catalog-content .rate-pill b{display:block!important;font-size:8.3px!important;line-height:1.05!important;margin-top:2px!important;white-space:nowrap!important}
+  .question-catalog .level-badge{font-size:6.6px!important;padding:1px 4px!important;line-height:1.1!important}
+  .question-catalog .catalog-meta small{font-size:7px!important;line-height:1.1!important;white-space:nowrap!important}
+}
+/* question-column-flow-v1 */
+.question-catalog{display:block!important;column-count:2!important;column-gap:10px!important}
+.question-catalog .catalog-item{display:grid!important;break-inside:avoid!important;page-break-inside:avoid!important;margin:0 0 7px!important;width:100%!important}
+@media(max-width:900px){.question-catalog{column-count:1!important}}
+@media print{.question-catalog{display:block!important;column-count:2!important;column-gap:7px!important}.question-catalog .catalog-item{margin:0 0 5px!important;break-inside:avoid!important;page-break-inside:avoid!important}}
+/* readable-course-rate-card-v1 */
+.rate-pill.course{background:#fffaf3!important;border-color:#f6b35d!important}
+.rate-pill.course span{color:#b45309!important}
+.rate-pill.course b{color:#c2410c!important;font-weight:900!important}
+.question-catalog .catalog-content .rate-pill.course{box-shadow:inset 0 0 0 1px rgba(255,152,31,.08)!important}
+@media print{.rate-pill.course{background:#fff8ef!important;border-color:#e89b3a!important}.rate-pill.course span{color:#9a4f00!important}.rate-pill.course b{color:#a83b08!important}}
+
+/* question-concept-reference-v1 */
+.question-catalog .catalog-content{grid-template-columns:minmax(0,1fr) 162px!important}
+.question-catalog .catalog-rates{grid-template-columns:repeat(3,50px)!important;gap:5px!important}
+.question-catalog .rate-pill.concept{border-color:#c4b5fd!important;background:#f5f3ff!important;color:#6d28d9!important}
+.question-catalog .rate-pill.concept span,.question-catalog .rate-pill.concept b{color:#6d28d9!important}
+@media print{.question-catalog .catalog-content{grid-template-columns:minmax(0,1fr) 144px!important}.question-catalog .catalog-rates{grid-template-columns:repeat(3,44px)!important;gap:4px!important}.question-catalog .rate-pill span{font-size:4.8pt!important}.question-catalog .rate-pill b{font-size:6.8pt!important}}
+
+/* print-question-list-compact-v1 */
+@media print{
+  .question-catalog{display:block!important;column-count:1!important;column-gap:0!important;margin-top:8px!important}
+  .question-catalog .catalog-item{display:grid!important;grid-template-columns:28px minmax(0,1fr)!important;gap:8px!important;width:100%!important;margin:0 0 5px!important;padding:5px 7px!important;border-radius:8px!important;break-inside:avoid!important;page-break-inside:avoid!important;align-items:center!important}
+  .question-catalog .catalog-num{width:22px!important;height:22px!important;border-radius:7px!important;font-size:9px!important;line-height:1!important}
+  .question-catalog .catalog-content{display:grid!important;grid-template-columns:minmax(0,1fr) 140px!important;grid-template-rows:auto auto!important;column-gap:8px!important;align-items:center!important;min-width:0!important}
+  .question-catalog .catalog-content>strong{grid-column:1!important;grid-row:1!important;font-size:7.4px!important;line-height:1.12!important;min-width:0!important;white-space:normal!important}
+  .question-catalog .catalog-content>.catalog-meta{grid-column:1!important;grid-row:2!important;margin:2px 0 0!important;display:flex!important;align-items:center!important;gap:4px!important;flex-wrap:nowrap!important;min-width:0!important}
+  .question-catalog .level-badge{font-size:6px!important;padding:1px 4px!important;border-radius:999px!important;line-height:1.05!important;white-space:nowrap!important}
+  .question-catalog .catalog-meta small{font-size:6.5px!important;line-height:1!important;white-space:nowrap!important;color:#111827!important}
+  .question-catalog .catalog-content>.catalog-rates{grid-column:2!important;grid-row:1 / span 2!important;display:grid!important;grid-template-columns:repeat(3,42px)!important;gap:4px!important;margin:0!important;align-self:center!important;justify-self:end!important}
+  .question-catalog .catalog-content .rate-pill{width:42px!important;min-height:28px!important;padding:3px 2px!important;border-radius:6px!important;text-align:center!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;box-sizing:border-box!important}
+  .question-catalog .catalog-content .rate-pill span{display:block!important;font-size:4.9px!important;line-height:1!important;letter-spacing:.04em!important;white-space:nowrap!important;margin:0!important}
+  .question-catalog .catalog-content .rate-pill b{display:block!important;font-size:7.5px!important;line-height:1.05!important;margin-top:2px!important;white-space:nowrap!important}
+}
+
+/* print-question-list-final-fix-v1 */
+@media print{
+  .question-catalog .catalog-meta small{display:none!important}
+  .question-catalog .catalog-item{grid-template-columns:26px minmax(0,1fr)!important;padding:5px 7px!important;gap:8px!important}
+  .question-catalog .catalog-content{grid-template-columns:minmax(0,1fr) 174px!important;column-gap:9px!important;align-items:center!important}
+  .question-catalog .catalog-content>.catalog-rates{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:5px!important;width:174px!important;min-width:174px!important;grid-column:2!important;grid-row:1 / span 2!important;justify-self:end!important;align-self:center!important}
+  .question-catalog .catalog-content .rate-pill{flex:0 0 52px!important;width:52px!important;min-width:52px!important;max-width:52px!important;min-height:29px!important;padding:3px 2px!important;box-sizing:border-box!important}
+  .question-catalog .catalog-content .rate-pill span{font-size:4.8pt!important;line-height:1!important;white-space:nowrap!important}
+  .question-catalog .catalog-content .rate-pill b{font-size:7.4pt!important;line-height:1.05!important;margin-top:2px!important;white-space:nowrap!important}
+}
+
+/* print-question-list-hard-reset-v2 */
+@media print{
+  body .item-analysis-card .question-catalog{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    column-count:1!important;
+    column-width:auto!important;
+    column-gap:0!important;
+    gap:5px!important;
+    width:100%!important;
+    max-width:none!important;
+  }
+  body .item-analysis-card .question-catalog .catalog-item{
+    display:grid!important;
+    grid-template-columns:26px minmax(0,1fr)!important;
+    align-items:center!important;
+    break-inside:avoid!important;
+    page-break-inside:avoid!important;
+    width:100%!important;
+    max-width:none!important;
+    min-height:36px!important;
+    box-sizing:border-box!important;
+    margin:0 0 5px!important;
+    padding:5px 7px!important;
+    border-radius:8px!important;
+  }
+  body .item-analysis-card .question-catalog .catalog-num{
+    width:20px!important;
+    height:20px!important;
+    min-width:20px!important;
+    font-size:8px!important;
+    line-height:20px!important;
+    align-self:center!important;
+  }
+  body .item-analysis-card .question-catalog .catalog-content{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 162px!important;
+    grid-template-rows:auto auto!important;
+    column-gap:8px!important;
+    row-gap:1px!important;
+    min-width:0!important;
+    width:100%!important;
+    align-items:center!important;
+  }
+  body .item-analysis-card .question-catalog .catalog-content>strong{
+    grid-column:1!important;
+    grid-row:1!important;
+    font-size:7.2px!important;
+    line-height:1.12!important;
+    max-width:none!important;
+    white-space:normal!important;
+    overflow:visible!important;
+    text-overflow:clip!important;
+    margin:0!important;
+  }
+  body .item-analysis-card .question-catalog .catalog-meta{
+    grid-column:1!important;
+    grid-row:2!important;
+    display:flex!important;
+    align-items:center!important;
+    gap:4px!important;
+    flex-wrap:nowrap!important;
+    margin:2px 0 0!important;
+  }
+  body .item-analysis-card .question-catalog .catalog-meta small{
+    display:none!important;
+  }
+  body .item-analysis-card .question-catalog .level-pill{
+    font-size:6px!important;
+    line-height:1!important;
+    padding:2px 5px!important;
+    white-space:nowrap!important;
+  }
+  body .item-analysis-card .question-catalog .catalog-rates{
+    grid-column:2!important;
+    grid-row:1 / span 2!important;
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:nowrap!important;
+    gap:4px!important;
+    justify-self:end!important;
+    align-self:center!important;
+    width:162px!important;
+    min-width:162px!important;
+    max-width:162px!important;
+  }
+  body .item-analysis-card .question-catalog .rate-pill{
+    flex:0 0 50px!important;
+    width:50px!important;
+    min-width:50px!important;
+    max-width:50px!important;
+    min-height:27px!important;
+    padding:3px 2px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    box-sizing:border-box!important;
+    border-radius:5px!important;
+  }
+  body .item-analysis-card .question-catalog .rate-pill span{
+    display:block!important;
+    font-size:4.5pt!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+    letter-spacing:.02em!important;
+  }
+  body .item-analysis-card .question-catalog .rate-pill b{
+    display:block!important;
+    font-size:7pt!important;
+    line-height:1.05!important;
+    margin-top:2px!important;
+    white-space:nowrap!important;
+  }
+}
+
+
+/* competence-analysis-v1 */
+.competence-analysis-card{border:1px solid var(--line);border-radius:14px;background:#fff;margin:18px 0;padding:18px 20px;box-shadow:0 10px 24px rgba(15,23,42,.05)}
+.competence-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px}.competence-title{display:flex;align-items:flex-start;gap:12px}.competence-icon{width:32px;height:32px;border-radius:10px;background:#f3e8ff;color:#7c3aed;display:grid;place-items:center;font-weight:900}.competence-title h3{margin:0;color:#06172c;font-size:22px;line-height:1.1}.competence-title p{margin:4px 0 0;color:#51627a;font-size:13px}.competence-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.competence-item{border:1px solid #dbe4ef;border-radius:10px;background:#fff;padding:10px 12px;display:grid;grid-template-columns:minmax(0,1fr) 174px;gap:10px;align-items:center}.competence-name{min-width:0}.competence-name strong{display:block;color:#06172c;font-size:12px;line-height:1.22}.competence-name small{display:inline-flex;margin-top:5px;border:1px solid #d8e4f2;border-radius:999px;padding:2px 7px;color:#4c607a;font-size:10px;font-weight:800;background:#f8fbff}.competence-rates{display:flex;gap:5px;justify-content:flex-end}.competence-rates .rate-pill{width:52px;min-width:52px;text-align:center}.competence-note{margin-top:12px;border:1px solid #dbe4ef;border-left:4px solid #7c3aed;border-radius:9px;background:#f8fbff;padding:9px 11px;color:#465a74;font-size:12px;line-height:1.35}
+@media(max-width:1050px){.competence-grid{grid-template-columns:1fr}.competence-item{grid-template-columns:1fr}.competence-rates{justify-content:flex-start}}
+@media print{.competence-analysis-card{box-shadow:none;margin:10px 0;padding:10px 12px;break-inside:avoid}.competence-title h3{font-size:14px}.competence-title p{font-size:8px}.competence-icon{width:22px;height:22px;border-radius:7px;font-size:10px}.competence-grid{grid-template-columns:1fr 1fr!important;gap:6px}.competence-item{grid-template-columns:minmax(0,1fr) 150px!important;padding:6px 7px;gap:5px;break-inside:avoid}.competence-name strong{font-size:7.2px;line-height:1.15}.competence-name small{font-size:6px;padding:1px 5px;margin-top:3px}.competence-rates{gap:3px}.competence-rates .rate-pill{width:46px!important;min-width:46px!important;max-width:46px!important;min-height:26px!important;padding:3px 2px!important}.competence-rates .rate-pill span{font-size:4.3pt!important}.competence-rates .rate-pill b{font-size:7pt!important}.competence-note{font-size:7px;padding:5px 7px;margin-top:7px}}
+
+
+/* competence-one-column-v1 */
+.competence-grid{grid-template-columns:1fr!important}.competence-item{grid-template-columns:minmax(0,1fr) 186px!important;min-height:72px}.competence-name strong{font-size:13px;line-height:1.28}.competence-rates .rate-pill{width:56px;min-width:56px}@media print{.competence-grid{grid-template-columns:1fr!important}.competence-item{grid-template-columns:minmax(0,1fr) 150px!important;min-height:34px}.competence-name strong{font-size:7.4px!important;line-height:1.16!important}}
+
+.macro-orange .competence-icon{background:#fff3e6;color:var(--orange)}
+.macro-orange .competence-note{border-left-color:var(--orange)}
+.area-card .area-icon,.area-analysis-card .area-icon{background:#fff3e6!important;color:var(--orange)!important}
+.area-card .area-row-icon,.area-analysis-card .area-row-icon{background:#fff3e6!important;color:var(--orange)!important}
+.synthesis-card .focus-note{border-left-color:var(--orange)}
+
+.macro-radar-card{background:#fff;border:1px solid #d7e2f0;border-radius:14px;padding:22px 24px;margin:18px 0;box-shadow:0 10px 28px rgba(15,37,64,.07);break-inside:avoid;page-break-inside:avoid}.macro-radar-head{display:flex;gap:14px;align-items:flex-start;border-bottom:1px solid #d7e2f0;padding-bottom:12px;margin-bottom:14px}.macro-radar-icon{width:42px;height:42px;border-radius:12px;background:#fff3e6;color:var(--orange);display:grid;place-items:center;font-weight:900;font-size:22px}.macro-radar-title{margin:0;color:#061830;font-size:26px;line-height:1.08;font-weight:900}.macro-radar-sub{margin:5px 0 0;color:#465b78;font-size:14px}.macro-radar-grid{display:grid;grid-template-columns:minmax(420px,1.25fr) minmax(260px,.75fr);gap:18px;align-items:stretch}.macro-radar-plot{border:1px solid #dbe5f1;border-radius:12px;background:linear-gradient(180deg,#fff,#fbfdff);padding:12px;min-height:410px;display:flex;align-items:center;justify-content:center}.macro-radar-svg{width:100%;max-width:560px;height:auto;overflow:visible}.radar-grid-poly{fill:none;stroke:#d3dce8;stroke-dasharray:3 3;stroke-width:1}.radar-axis{stroke:#e2e8f1;stroke-width:1}.radar-course-area{fill:rgba(255,152,31,.18);stroke:var(--orange);stroke-width:3}.radar-course-dot{fill:var(--orange);stroke:#fff;stroke-width:2}.radar-label{font-size:12px;font-weight:800;fill:#0b2038}.radar-label-pct{fill:var(--orange);font-weight:900;font-size:14px}.radar-level{font-size:10px;fill:#71829a}.macro-radar-ranking{border:1px solid #dbe5f1;border-radius:12px;background:#fff;padding:14px}.macro-radar-ranking-title{display:flex;gap:10px;align-items:center;margin-bottom:12px}.macro-radar-trophy{width:34px;height:34px;border-radius:10px;background:#fff3e6;color:var(--orange);display:grid;place-items:center;font-size:20px;font-weight:900}.macro-radar-ranking-title strong{display:block;color:#061830;font-size:17px}.macro-radar-ranking-title span{display:block;color:#667894;font-size:12px;margin-top:2px}.macro-radar-rank-list{display:flex;flex-direction:column;gap:8px}.macro-radar-rank-item{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;border:1px solid #e0e8f2;border-radius:10px;padding:9px 10px;background:#fbfdff}.macro-radar-pos{width:28px;height:28px;border-radius:999px;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:900}.macro-radar-rank-name{font-size:13px;font-weight:800;color:#1b2b44;line-height:1.15}.macro-radar-rank-value{font-size:19px;font-weight:900;color:var(--orange);white-space:nowrap}.macro-radar-note{margin:14px auto 0;border:1px solid #ffe0bf;border-left:5px solid var(--orange);border-radius:9px;background:#fffaf4;color:#465b78;padding:9px 12px;font-size:12px;max-width:620px;text-align:left}.macro-radar-note strong{color:var(--orange)}
+@media(max-width:900px){.macro-radar-grid{grid-template-columns:1fr}.macro-radar-title{font-size:22px}.macro-radar-plot{min-height:360px}}
+@media print{.macro-radar-card{box-shadow:none;margin:10px 0 14px;padding:16px}.macro-radar-title{font-size:22px}.macro-radar-grid{grid-template-columns:1.15fr .85fr;gap:12px}.macro-radar-plot{min-height:330px;padding:8px}.macro-radar-ranking{padding:10px}.macro-radar-rank-item{padding:7px 8px}.macro-radar-rank-name{font-size:11px}.macro-radar-rank-value{font-size:16px}.macro-radar-note{font-size:10px;margin-top:8px}.radar-label{font-size:10px}.radar-label-pct{font-size:12px}}
+
+
+/* Ajuste fino do radar de macrodomínios: mais espaço para o gráfico e painel lateral compacto */
+.macro-radar-grid{grid-template-columns:minmax(590px,1.8fr) minmax(218px,.48fr);gap:12px}.macro-radar-plot{min-height:430px;padding:8px}.macro-radar-svg{max-width:640px}.radar-label{font-size:10.5px;line-height:1.05}.radar-label-pct{font-size:12.5px}.radar-level{font-size:9px}.macro-radar-ranking{padding:10px}.macro-radar-ranking-title{gap:8px;margin-bottom:8px}.macro-radar-trophy{width:26px;height:26px;border-radius:8px;font-size:13px}.macro-radar-ranking-title strong{font-size:14px;line-height:1.05}.macro-radar-ranking-title span{font-size:10px;line-height:1.1}.macro-radar-rank-list{gap:6px}.macro-radar-rank-item{grid-template-columns:24px 1fr auto;gap:6px;padding:7px 8px;border-radius:8px}.macro-radar-pos{width:22px;height:22px;font-size:12px}.macro-radar-rank-name{font-size:10.5px;line-height:1.05}.macro-radar-rank-value{font-size:15px}.macro-radar-note{max-width:560px;font-size:11px;padding:7px 10px}
+@media(max-width:980px){.macro-radar-grid{grid-template-columns:1fr}.macro-radar-plot{min-height:360px}.macro-radar-svg{max-width:560px}}
+@media print{.macro-radar-grid{grid-template-columns:1.65fr .55fr;gap:10px}.macro-radar-plot{min-height:320px}.macro-radar-rank-name{font-size:9.5px}.macro-radar-rank-value{font-size:13px}.macro-radar-pos{width:20px;height:20px;font-size:11px}.macro-radar-ranking-title strong{font-size:12px}.macro-radar-ranking-title span{font-size:9px}.radar-label{font-size:9.5px}.radar-label-pct{font-size:11px}}
+
+
+/* Acabamento premium do radar: linha e pontos mais delicados */
+.radar-course-area{fill:rgba(255,152,31,.13)!important;stroke:var(--orange)!important;stroke-width:2!important;stroke-linejoin:round!important}.radar-course-dot{r:3.5;fill:var(--orange)!important;stroke:#fff!important;stroke-width:1.5!important}.radar-grid-poly{stroke:#d7e1ed!important;stroke-width:.9!important;stroke-dasharray:3 4!important}.radar-axis{stroke:#e8edf4!important;stroke-width:.8!important}
+@media print{.radar-course-area{stroke-width:1.7!important}.radar-course-dot{r:3!important}}
+
+
+/* Ajuste de legibilidade e impressão do radar */
+.radar-label{font-size:9.2px!important;line-height:1!important}.radar-label-pct{font-size:11px!important}.radar-level{font-size:8.3px!important}.macro-radar-plot{overflow:hidden}.macro-radar-svg{overflow:visible}.macro-radar-title{font-size:24px}.macro-radar-sub{font-size:12px}.macro-radar-card{padding:18px 20px}.macro-radar-head{padding-bottom:10px;margin-bottom:12px}.macro-radar-icon{width:34px;height:34px;border-radius:10px;font-size:18px}
+@media print{.macro-radar-card{padding:12px 14px!important}.macro-radar-title{font-size:18px!important}.macro-radar-sub{font-size:11px!important}.macro-radar-grid{grid-template-columns:1.5fr .62fr!important}.macro-radar-plot{min-height:280px!important;padding:4px!important;overflow:hidden!important}.macro-radar-svg{max-width:500px!important}.radar-label{font-size:7.4px!important}.radar-label-pct{font-size:9px!important}.radar-level{font-size:7px!important}.macro-radar-rank-item{grid-template-columns:18px 1fr auto!important;gap:5px!important;padding:5px 6px!important}.macro-radar-pos{width:17px!important;height:17px!important;font-size:9px!important}.macro-radar-rank-name{font-size:8.4px!important;line-height:1!important}.macro-radar-rank-value{font-size:11px!important}.macro-radar-ranking-title strong{font-size:10.5px!important}.macro-radar-ranking-title span{font-size:8px!important}.macro-radar-trophy{width:20px!important;height:20px!important;font-size:10px!important}.macro-radar-note{font-size:8.8px!important;padding:5px 8px!important}}
+
+
+/* Rótulos do radar mais afastados e legíveis */
+.radar-label{font-size:8.8px!important;line-height:.96!important;paint-order:stroke fill;stroke:#fff;stroke-width:3px;stroke-linejoin:round}.radar-label-pct{font-size:10.5px!important;paint-order:stroke fill;stroke:#fff;stroke-width:3px;stroke-linejoin:round}.radar-level{font-size:7.8px!important;fill:#8a98aa!important}.macro-radar-plot{padding:2px 12px!important}.radar-course-area{stroke-width:1.8!important}.radar-course-dot{r:3!important}
+@media print{.radar-label{font-size:7px!important;stroke-width:2.6px!important}.radar-label-pct{font-size:8.6px!important;stroke-width:2.6px!important}.radar-course-area{stroke-width:1.5!important}.radar-course-dot{r:2.7!important}.macro-radar-plot{padding:2px 8px!important}}
+
+
+/* Radar com comparação nacional */
+.radar-national-area{fill:rgba(139,92,246,.06);stroke:#8b5cf6;stroke-width:1.8;stroke-linejoin:round}.radar-national-dot{fill:#8b5cf6;stroke:#fff;stroke-width:1.4}.radar-label-pct-national{fill:#8b5cf6;font-weight:900;font-size:10.5px;paint-order:stroke fill;stroke:#fff;stroke-width:3px;stroke-linejoin:round}.macro-radar-legend{display:flex;justify-content:center;gap:18px;align-items:center;margin:12px auto 0;border:1px solid #e0e8f2;border-radius:9px;background:#fff;max-width:220px;padding:7px 12px;color:#43536b;font-size:12px;font-weight:800}.macro-radar-legend span{display:flex;align-items:center;gap:6px}.macro-radar-legend i{width:22px;height:3px;border-radius:999px;display:inline-block}.macro-radar-legend .course{background:var(--orange)}.macro-radar-legend .national{background:#8b5cf6}
+@media print{.radar-national-area{stroke-width:1.4!important}.radar-national-dot{r:2.6!important}.radar-label-pct-national{font-size:8.6px!important;stroke-width:2.6px!important}.macro-radar-legend{font-size:9px;padding:4px 8px;margin-top:6px}.macro-radar-legend i{width:16px;height:2px}}
+
+
+/* Badges compactos nas comparações de competências, macrodomínios e foco pedagógico */
+.competence-score,.item-score,.question-score{min-width:48px!important;padding:5px 6px!important;border-radius:8px!important;box-sizing:border-box}.competence-score small,.item-score small,.question-score small{font-size:7.2px!important;letter-spacing:.35px!important;line-height:1!important;white-space:nowrap}.competence-score strong,.item-score strong,.question-score strong{font-size:12px!important;line-height:1.05!important;white-space:nowrap}.competence-row,.competence-card,.grouped-row{gap:8px!important}.competence-scores,.item-scores,.question-scores{gap:5px!important;flex-wrap:nowrap!important;align-items:center}.competence-card-title,.competence-name{min-width:0}
+@media print{.competence-score,.item-score,.question-score{min-width:42px!important;padding:4px 5px!important}.competence-score small,.item-score small,.question-score small{font-size:6.3px!important}.competence-score strong,.item-score strong,.question-score strong{font-size:10.5px!important}.competence-scores,.item-scores,.question-scores{gap:4px!important}}
+
+
+
+
+
+
+
+
+/* Ajuste fino apenas da fonte dos badges curso nacional enamed */
+@media screen{
+  .competence-rates .rate-pill,
+  .catalog-rates .rate-pill{
+    width:52px!important;
+    min-width:52px!important;
+    max-width:52px!important;
+    padding:6px 6px!important;
+    box-sizing:border-box!important;
+  }
+  .competence-rates .rate-pill span,
+  .catalog-rates .rate-pill span{
+    font-size:7px!important;
+    letter-spacing:.025em!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+  }
+  .competence-rates .rate-pill b,
+  .catalog-rates .rate-pill b{
+    font-size:12.5px!important;
+    line-height:1.05!important;
+    white-space:nowrap!important;
+  }
+  .competence-rates,
+  .catalog-rates{
+    gap:5px!important;
+  }
+}
+
+
+/* Lista lateral compacta de cursos */
+@media screen{
+  .layout{grid-template-columns:minmax(240px,18vw) minmax(0,1fr)!important;}
+  .panel{min-width:0!important;}
+  .panel .course-head{padding:10px 12px!important;gap:10px!important;}
+  .panel .course-head h2{font-size:15px!important;}
+  .panel .course-head select{max-width:145px!important;font-size:11px!important;padding:6px 8px!important;}
+  .panel .course-list-table{table-layout:fixed!important;width:100%!important;font-size:11px!important;}
+  .panel .course-list-table th,.panel .course-list-table td{padding:7px 8px!important;}
+  .panel .course-list-table th:first-child,.panel .course-list-table td:first-child{width:auto!important;}
+  .panel .course-list-table th:last-child,.panel .course-list-table td:last-child{width:48px!important;text-align:right!important;}
+  .panel .course-name{font-size:12px!important;line-height:1.08!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
+  .panel .course-sub{margin-top:3px!important;font-size:10px!important;line-height:1.15!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;max-width:100%!important;}
+  .panel .course-mini{margin-top:3px!important;font-size:9.5px!important;line-height:1.15!important;color:#64748b!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
+  .panel .badge{padding:2px 5px!important;font-size:8px!important;margin-left:4px!important;vertical-align:1px!important;}
+  .panel .print-small{width:38px!important;padding:5px 0!important;font-size:10px!important;border-radius:6px!important;}
+  .panel .print-small::after{content:none!important;}
+}
+@media screen and (max-width:1350px){
+  .layout{grid-template-columns:minmax(240px,18vw) minmax(0,1fr)!important;}
+  .summary{padding:0 10px 8px!important;}
+  .detail{padding:16px!important;}
+  .app-header .filters{grid-template-columns:minmax(220px,1fr) repeat(5,minmax(0,1fr))!important;}
+
+  .layout{grid-template-columns:minmax(240px,18vw) minmax(0,1fr)!important;}
+  .panel .course-head select{max-width:128px!important;}
+}
+/* Respiro lateral da lista de cursos */
+@media screen{
+  .layout{
+    padding-left:8px!important;
+    padding-right:8px!important;
+    box-sizing:border-box!important;
+    column-gap:10px!important;
+    background:#f4f7fb!important;
+  }
+  .panel{
+    border:1px solid var(--line)!important;
+    border-radius:18px 18px 0 0!important;
+    overflow:auto!important;
+  }
+  .detail{
+    padding-left:0!important;
+  }
+}
+
+
+.national-position-card{margin-top:14px;break-inside:avoid;page-break-inside:avoid}
+.national-position-card h3{font-size:22px;margin-bottom:4px}
+.national-position-sub{color:var(--muted);margin:0 0 10px;font-size:14px}
+.national-chart-box{max-width:820px;margin:4px auto 0}
+.national-chart{width:100%;height:auto;display:block;overflow:visible}
+.np-grid{stroke:#d9e3f0;stroke-width:1;stroke-dasharray:4 4}.np-axis{stroke:#0f2b4c;stroke-width:3}.np-axis-label,.np-y-label{fill:#53627a;font-size:10px}.np-x-title,.np-y-title{fill:#6b7280;font-size:13px}.np-curve{fill:none;stroke:#3b82f6;stroke-width:2}.np-course-line{stroke:#ef4444;stroke-width:3;stroke-dasharray:6 5}.np-course-label{fill:#ef4444;font-size:12px;font-weight:800}.np-course-value{font-size:11px;font-weight:800}.np-mean-line{stroke:#64748b;stroke-width:2;stroke-dasharray:5 5}.np-mean-label{fill:#475569;font-size:11px;font-weight:800}
+.national-legend{display:flex;gap:18px;justify-content:center;align-items:center;margin-top:6px;color:#334155;font-size:13px;flex-wrap:wrap}.national-legend span{display:inline-flex;align-items:center;gap:7px}.national-legend i{width:16px;height:10px;border-radius:4px;display:inline-block}.national-legend .dist{background:#aebbd0}.national-legend .curve{width:24px;height:0;border-top:2px solid #3b82f6;border-radius:0}.national-legend .course{width:24px;height:0;border-top:2px dashed #ef4444;border-radius:0}.national-legend .mean{width:24px;height:0;border-top:2px dashed #64748b;border-radius:0}.national-summary{text-align:center;color:#344256;font-weight:800;margin:10px 0 0;font-size:14px}
+@media print{.national-position-card{margin-top:10px}.national-position-card h3{font-size:18px}.national-position-sub{font-size:11px}.national-chart-box{max-width:700px}.national-legend{font-size:10px;gap:10px}.national-summary{font-size:10px;margin-top:6px}.np-axis-label,.np-y-label{font-size:8px}.np-x-title,.np-y-title{font-size:10px}.np-course-label{font-size:9px}.np-mean-label{font-size:8px}}
+
+
+/* Ajuste de impressao: manter Posicao Nacional logo apos a Distribuicao da Proficiencia */
+@media print{
+  .nota-dist-card{
+    break-after:auto!important;
+    page-break-after:auto!important;
+    margin-bottom:8px!important;
+  }
+  .national-position-card{
+    break-before:auto!important;
+    page-break-before:auto!important;
+    margin-top:8px!important;
+    margin-bottom:10px!important;
+    break-inside:avoid!important;
+    page-break-inside:avoid!important;
+  }
+  .national-position-card h3{font-size:15px!important;margin-bottom:2px!important}
+  .national-position-sub{font-size:8.5px!important;margin:0 0 2px!important}
+  .national-chart-box{max-width:620px!important;margin-top:0!important}
+  .national-legend{font-size:7.5px!important;margin-top:2px!important;gap:7px!important}
+  .national-summary{font-size:8px!important;margin-top:3px!important}
+  .np-axis-label,.np-y-label{font-size:6.8px!important}
+  .np-x-title,.np-y-title{font-size:8px!important}
+  .np-course-label{font-size:7.8px!important}
+  .np-mean-label{font-size:7px!important}
+}
+
+@media screen{
+  body{background:radial-gradient(circle at top left, rgba(255,152,31,.10), transparent 28%),radial-gradient(circle at top right, rgba(59,130,246,.10), transparent 24%),linear-gradient(180deg,#eef3fb 0%,#f6f8fc 100%);color:#06172c}
+  header.app-header{position:sticky;top:0;z-index:20;margin:0 0 14px;padding:18px 20px 16px;border:1px solid rgba(15,39,68,.08);border-radius:0 0 24px 24px;background:linear-gradient(135deg,#0f2744 0%,#123563 52%,#1b4b86 100%);box-shadow:0 18px 40px rgba(15,39,68,.18);backdrop-filter:blur(10px)}
+  .app-header .header-hero{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:14px}
+  .app-header .brand-block{display:flex;gap:16px;align-items:center;min-width:0}
+  .app-header .brand-logo{width:132px;height:58px;object-fit:contain;background:#fff;padding:10px 16px;border-radius:16px;box-shadow:0 10px 24px rgba(0,0,0,.18);flex:0 0 auto}
+  .app-header .eyebrow{margin:0 0 4px;color:rgba(255,255,255,.7);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:900}
+  .app-header h1{margin:0;font-size:30px;line-height:1.04;color:var(--orange);letter-spacing:-.03em}
+  .app-header .subtitle{margin:6px 0 0;color:rgba(255,255,255,.84);font-size:13px;max-width:860px}
+  .app-header .header-badges{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;justify-content:flex-end}
+  .app-header .source-chip,.app-header .meta{display:inline-flex;align-items:center;min-height:34px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);color:#fff;font-size:12px;font-weight:700;backdrop-filter:blur(6px)}
+  .app-header .meta{color:#d9e8ff}
+  .app-header .filters{padding:14px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12);border-radius:18px;backdrop-filter:blur(10px);grid-template-columns:minmax(220px,1.1fr) .9fr 1.15fr .7fr .9fr .9fr}
+  .app-header .filters input,.app-header .filters select{height:46px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.96);border-radius:14px;padding:0 14px;box-shadow:0 8px 20px rgba(0,0,0,.08)}
+  .app-header .buttons{display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap;justify-content:flex-start}
+  .app-header .btn{height:42px;border-radius:12px;padding:0 16px;background:linear-gradient(135deg,#ff981f,#ffb14d);box-shadow:0 10px 24px rgba(255,152,31,.28)}
+  .app-header .btn:hover{filter:brightness(1.03);transform:translateY(-1px)}
+  .app-header #count{color:rgba(255,255,255,.76)!important;font-weight:700}
+  .summary{width:100%;max-width:none;margin:16px 0 0;padding:0 8px 6px;gap:10px}
+  .kpi{border:1px solid rgba(15,39,68,.08);background:linear-gradient(180deg,#fff 0,#f8fbff 100%);border-radius:18px;box-shadow:0 14px 34px rgba(15,39,68,.08)}
+  .kpi span{text-transform:uppercase;letter-spacing:.08em;font-weight:800}
+  .kpi strong{font-size:28px}
+  .layout{width:100%;max-width:none;margin:8px 0 16px;padding:0 8px 16px;gap:10px;grid-template-columns:minmax(240px,18vw) minmax(0,1fr);height:calc(100vh - 276px)}
+  .panel,.detail{background:rgba(255,255,255,.72);border:1px solid rgba(15,39,68,.08);box-shadow:0 16px 36px rgba(15,39,68,.08);backdrop-filter:blur(10px)}
+  .panel{border-radius:22px;overflow:hidden;position:relative}
+  .detail{border-radius:22px;padding:14px 14px 16px}
+  .course-head{position:sticky;top:0;background:linear-gradient(180deg,rgba(15,39,68,.98),rgba(15,39,68,.93));color:#fff;border-bottom:1px solid rgba(255,255,255,.08);padding:14px 16px;z-index:3}
+  .course-head h2{color:#fff;font-size:18px}
+  .course-head select{border-radius:12px;background:#fff;height:38px;padding:0 10px}
+  .course-row{transition:transform .15s ease, box-shadow .15s ease, background .15s ease}
+  .course-row:hover{background:#f4f8fd;transform:translateY(-1px)}
+  .course-row.active{background:linear-gradient(90deg,#fff7eb,#eef5ff);box-shadow:inset 3px 0 0 #ff981f}
+  .hero{padding:18px 20px;border-radius:20px;background:linear-gradient(135deg,#0f2744,#173d6a 55%,#23558f);color:#fff;box-shadow:0 18px 40px rgba(15,39,68,.16)}
+  .hero h2{color:#ff981f;font-size:28px}
+  .hero p{color:rgba(255,255,255,.82)}
+  .metric-grid{margin:16px 0 18px;gap:12px}
+  .metric{border-radius:16px;background:linear-gradient(180deg,#fff,#f5f8fd);box-shadow:0 12px 28px rgba(15,39,68,.08);border-color:#e5edf7}
+  .metric b{font-size:10px;letter-spacing:.08em}
+  .metric span{font-size:22px}
+  .card{border-radius:18px;box-shadow:0 14px 32px rgba(15,39,68,.07);border-color:#e2eaf3}
+  .card h3{font-size:22px}
+  .section-title{border-radius:18px;box-shadow:0 14px 32px rgba(15,39,68,.10)}
+}</style>
+</head><body>
+
+
+<header class="no-print app-header"><div class="header-hero"><div class="brand-block"><img class="brand-logo" src="https://static.wixstatic.com/media/e1fca1_f5f2e6c6e0444a0290dcc88b757a8ce5~mv2.png" alt="PreparaEdu"><div><p class="eyebrow">Painel analítico</p><h1>ENAMED Medicina 2025</h1><p class="subtitle">Desempenho, proficiência e comparativos para apoiar decisões acadêmicas.</p></div></div><div class="header-badges"><span class="source-chip">Fonte: Microdados ENAMED 2025 (INEP)</span><div class="meta" id="meta"></div></div></div><div class="filters"><input id="search" placeholder="Buscar curso, IES, município ou código"><select id="sigla"></select><select id="ies"></select><select id="uf"></select><select id="categoria"></select></div><div class="buttons"><span id="count" style="align-self:center;color:#d9e8ff;font-size:13px"></span></div></header>
+<div class="summary no-print"><div class="kpi"><span>Cursos</span><strong id="kCursos">0</strong></div><div class="kpi"><span>Inscritos</span><strong id="kInscritos">0</strong></div><div class="kpi"><span>Participantes</span><strong id="kPart">0</strong></div><div class="kpi"><span>Presença</span><strong id="kPres">-</strong></div><div class="kpi"><span>Nota média</span><strong id="kNota">-</strong></div></div>
+<main class="layout"><section class="panel no-print"><div class="course-head"><h2>Cursos</h2><select id="sort"><option value="nota">Maior nota geral</option><option value="padrao">Maior proficiência</option><option value="area">Nome do curso</option></select></div><table class="course-list-table"><thead><tr><th>Curso</th><th>PDF</th></tr></thead><tbody id="rows"></tbody></table></section><section class="detail" id="detail"></section></main>
+
+<script>
+const ITEM_ANALYSIS_FILES=["item-analysis-courses-1.json","item-analysis-courses-2.json","item-analysis-courses-3.json","item-analysis-courses-4.json"];let ITEM_ANALYSIS=null;async function loadItemAnalysis(){const [meta,...chunks]=await Promise.all([fetch('item-analysis-meta.json').then(r=>r.json()),...ITEM_ANALYSIS_FILES.map(f=>fetch(f).then(r=>r.json()))]);ITEM_ANALYSIS={...meta,courses:Object.assign({},...chunks)};}
+const PREPARAEDU_LOGO='https://static.wixstatic.com/media/e1fca1_f5f2e6c6e0444a0290dcc88b757a8ce5~mv2.png';const DATA_FILES=["courses-1.json"];let DATA=null;let state={rows:[],selected:null};async function loadData(){const [meta,...chunks]=await Promise.all([fetch('app-meta.json').then(r=>r.json()),...DATA_FILES.map(f=>fetch(f).then(r=>r.json()))]);DATA={...meta,courses:chunks.flat()};DATA.logo=DATA.logo||PREPARAEDU_LOGO;state.rows=DATA.courses;state.selected=state.rows[0]||null;}async function boot(){try{await Promise.all([loadData(),loadItemAnalysis()]);init()}catch(err){console.error(err);document.body.innerHTML='<pre style="white-space:pre-wrap;padding:24px;font-family:Arial">Falha ao carregar os dados do relatório. Verifique se os arquivos JSON foram enviados junto com index.html.</pre>';}}const nf=new Intl.NumberFormat('pt-BR');const pf=new Intl.NumberFormat('pt-BR',{style:'percent',minimumFractionDigits:1,maximumFractionDigits:1});function one(id){return document.getElementById(id)}function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}function fmt(v,d=2){return v==null||Number.isNaN(v)?'-':Number(v).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d})}function pct(v){return v==null?'-':pf.format(v)}function pctClean(v){if(v==null||Number.isNaN(Number(v)))return'-';return Math.abs(Number(v)-1)<1e-9?'100%':pf.format(v)}function norm(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()}function fill(id,label,vals,current){const el=one(id);const keep=current&&vals.includes(current);el.innerHTML=`<option value="">${label}</option>`+vals.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join('');el.value=keep?current:''}
+function courseLabel(c){return c.ies+(c.sigla?` (${c.sigla})`:'')}
+function readFilters(){return{q:norm(one('search').value),sig:one('sigla').value,ies:one('ies').value,uf:one('uf').value,cat:one('categoria').value}}
+function filteredCourses(filters,ignore=''){return DATA.courses.filter(c=>{if(ignore!=='sigla'&&filters.sig&&c.sigla!==filters.sig)return false;if(ignore!=='ies'&&filters.ies&&courseLabel(c)!==filters.ies)return false;if(ignore!=='uf'&&filters.uf&&c.uf!==filters.uf)return false;if(ignore!=='categoria'&&filters.cat&&c.categoria!==filters.cat)return false;if(!filters.q)return true;return norm([c.coCurso,c.coIes,c.ies,c.sigla,c.municipio,c.uf,c.modalidade,c.categoria].join(' ')).includes(filters.q)})}
+function uniqueVals(rows,mapper){return [...new Set(rows.map(mapper).filter(v=>v!=null&&v!==''))].sort((a,b)=>String(a).localeCompare(String(b),'pt-BR'))}
+function init(){one('meta').textContent=`${nf.format(DATA.meta.totalCursos)} cursos · ${nf.format(DATA.meta.totalInscritos)} inscritos`;fill('uf','Todas as UFs',DATA.filters.ufs);fill('categoria','Todas as categorias',DATA.filters.categorias);['search','sigla','ies','uf','categoria','sort'].forEach(id=>one(id).addEventListener(id==='search'?'input':'change',apply));apply()}
+function apply(){const filters=readFilters();const siglaVals=uniqueVals(filteredCourses(filters,'sigla'),c=>c.sigla);const iesVals=uniqueVals(filteredCourses(filters,'ies'),c=>courseLabel(c));fill('sigla','Todas as instituições por sigla',siglaVals,filters.sig);fill('ies','Todas as instituições por nome',iesVals,filters.ies);const next=readFilters();let rows=filteredCourses(next);const sort=one('sort').value;rows.sort((a,b)=>sort==='area'?a.ies.localeCompare(b.ies,'pt-BR'):(sort==='padrao'?(b.acimaPadraoPct??-1)-(a.acimaPadraoPct??-1):(b.medias.NT_GER??-1)-(a.medias.NT_GER??-1)));state.rows=rows;state.selected=rows.includes(state.selected)?state.selected:(rows[0]||null);render()}
+function render(){renderKpis();renderRows();renderDetail()}function renderKpis(){const rows=state.rows,total=rows.reduce((s,c)=>s+(c.inscritos||0),0),part=rows.reduce((s,c)=>s+(c.participantes||0),0);let sum=0,ct=0;rows.forEach(c=>{if(c.medias.NT_GER!=null){sum+=c.medias.NT_GER*(c.participantes||1);ct+=(c.participantes||1)}});one('kCursos').textContent=nf.format(rows.length);one('kInscritos').textContent=nf.format(total);one('kPart').textContent=nf.format(part);one('kPres').textContent=total?pctClean(part/total):'-';one('kNota').textContent=ct?fmt(sum/ct,2):'-';one('count').textContent=rows.length+' curso'+(rows.length!==1?'s':'')}function renderRows(){one('rows').innerHTML=state.rows.map(c=>`<tr class="course-row ${state.selected===c?'active':''}" data-code="${esc(c.coCurso)}"><td><div class="course-name">MEDICINA <span class="badge">ENAMED ${esc(c.conceito)}</span></div><div class="course-sub">${esc(c.ies)}${c.sigla?' ('+esc(c.sigla)+')':''} · ${esc(c.municipio)}/${esc(c.uf)} · Cód. ${esc(c.coCurso)}</div><div class="course-mini">Nota ${fmt(c.medias.NT_GER,2)} · ${nf.format(c.participantes||0)} participante(s) · ${esc(c.modalidade)}</div></td><td class="course-action"><button class="print-small" title="Imprimir PDF" onclick="event.stopPropagation();printCourse('${esc(c.coCurso)}')">PDF</button></td></tr>`).join('')||'<tr><td colspan="2">Nenhum curso encontrado.</td></tr>';document.querySelectorAll('.course-row').forEach(tr=>tr.onclick=()=>{state.selected=DATA.courses.find(c=>c.coCurso===tr.dataset.code);render()})}function metric(label,val){return `<div class="metric"><b>${label}</b><span>${val}</span></div>`}function areaItensValidos(area){const n=(area||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();if(n.includes('cirurgia'))return 17;if(n.includes('familia')||n.includes('saude coletiva'))return 19;if(n.includes('ginecologia')||n.includes('obstetricia'))return 17;if(n.includes('clinica'))return 19;if(n.includes('pediatria'))return 18;return 20}function areaTaxa(a){const denom=areaItensValidos(a.area),media=Number(String(a.media??0).replace(',','.'));return denom&&!Number.isNaN(media)?(media/denom*100):0}function areaKey(area){return norm(area).replace(/[^a-z0-9]+/g,' ').trim()}const AREA_NACIONAL_FIXA={'clinica medica':58.4,'pediatria':54.2,'cirurgia geral':67.1,'ginecologia e obstetricia':66.1,'medicina da familia e comunidade saude coletiva':64.3};function areaNacionalTaxa(area){const key=areaKey(area);return AREA_NACIONAL_FIXA[key]??null}function conceitoReferencia(c){const n=Number(c?.conceito);if(!Number.isFinite(n))return null;return n<3?3:n}function areaConceitoTaxa(area,conceitoRef){if(!conceitoRef)return null;const key=areaKey(area);let soma=0,peso=0;for(const curso of DATA.courses||[]){if(Number(curso.conceito)!==Number(conceitoRef))continue;const stat=(curso.areaStats||[]).find(a=>areaKey(a.area)===key);if(!stat)continue;const media=Number(String(stat.media??0).replace(',','.'));const w=Number(curso.participantes||0)||1;if(Number.isNaN(media))continue;soma+=media*w;peso+=w}if(!peso)return null;const denom=areaItensValidos(area);return denom?(soma/peso)/denom*100:null}function areaAnalysis(c){const iconFor=a=>{const n=(a||'').toLowerCase();if(n.includes('clínica')||n.includes('clinica'))return '▥';if(n.includes('pediatria'))return '⌁';if(n.includes('cirurgia'))return '∕';if(n.includes('ginecologia'))return '♀';return '●'};const conceitoRef=conceitoReferencia(c);const conceitoLabel=conceitoRef?`ENAMED ${conceitoRef}`:'ENAMED';const rows=[...c.areaStats].sort((a,b)=>areaTaxa(b)-areaTaxa(a)).map(a=>{const denom=areaItensValidos(a.area),taxa=areaTaxa(a),nat=areaNacionalTaxa(a.area),conc=areaConceitoTaxa(a.area,conceitoRef);return `<div class="med-area-row"><div class="med-area-icon">${iconFor(a.area)}</div><div class="med-area-name">${esc(a.area)}</div><div><span class="med-area-score-pill">${fmt(a.media,1)} <small>/ ${denom}</small></span></div><div class="med-area-bars"><div class="med-area-mini-row"><span>Curso</span><div class="track"><div class="bar" style="width:${Math.max(0,Math.min(100,taxa))}%"></div></div></div><div class="med-area-mini-row national"><span>Nacional</span><div class="track"><div class="bar national-bar" style="width:${Math.max(0,Math.min(100,nat??0))}%"></div></div></div><div class="med-area-mini-row concept"><span>${conceitoLabel}</span><div class="track"><div class="bar concept-bar" style="width:${Math.max(0,Math.min(100,conc??0))}%"></div></div></div></div><div class="med-area-pct"><b>${fmt(taxa,1)}%</b><small>${nat==null?'-':fmt(nat,1)+'%'}</small><small class="concept-ref">${conc==null?'-':fmt(conc,1)+'%'}</small></div></div>`}).join('');return `<div class="card med-area-card"><div class="med-area-title"><div class="med-area-title-icon">▥</div><div><h3>Análise por Área Médica</h3><p>Comparativo entre o desempenho do curso, a média nacional e a média de referência por conceito ENAMED. Para cursos ENAMED 1 ou 2, a referência exibida é ENAMED 3 como meta.</p></div></div><div class="med-area-table"><div class="med-area-header"><div></div><div>Área Médica</div><div>Média do curso</div><div>Curso x Referências</div><div>Percentual</div></div>${rows}</div></div>`}function areaVerticalChart(c){const sorted=[...c.areaStats].sort((a,b)=>areaTaxa(b)-areaTaxa(a)),max=Math.max(...sorted.map(a=>areaTaxa(a)),1),colors=['#16a34a','#3b82f6','#ff981f','#8b5cf6','#06b6d4'];return `<div class="card area-vertical-card"><h3>Comparativo por Área Médica</h3><p class="area-vnote">Taxa média de acerto dos estudantes presentes em cada área avaliada, calculada pelos itens válidos e ordenada da maior para a menor.</p><div class="area-vertical-chart">${sorted.map((a,i)=>{const taxa=areaTaxa(a);return `<div class="area-vbar-wrap"><span class="area-vvalue">${fmt(taxa,1)}%</span><div class="area-vbar" style="--area-color:${colors[i%colors.length]};height:${Math.max(5,taxa/max*150)}px"></div><div class="area-vlabel">${esc(a.area)}</div></div>`}).join('')}</div></div>`}function padraoCard(c){const pctA=c.acimaPadraoPct??0,q=c.acimaPadraoQtd??0,total=c.participantes||0,abaixo=Math.max(0,total-q),pctNao=total?abaixo/total:0,grad=`conic-gradient(var(--green) 0 ${(pctA*100).toFixed(2)}%, var(--yellow) ${(pctA*100).toFixed(2)}% 100%)`;return `<div class="card donut-card padrao-card"><div><h3>Concluintes Proficientes / Proficientes</h3><p class="padrao-sub">Distribuição oficial do curso conforme planilha de conceito.</p><div class="padrao-legend-item"><span class="padrao-legend-dot" style="background:var(--green)"></span><div><span class="padrao-legend-title">Proficientes</span><span class="padrao-legend-value">${nf.format(q)} estudante(s) · ${pct(pctA)}</span></div></div><div class="padrao-legend-item"><span class="padrao-legend-dot" style="background:var(--yellow)"></span><div><span class="padrao-legend-title">Não proficientes</span><span class="padrao-legend-value">${nf.format(abaixo)} estudante(s) · ${pct(pctNao)}</span></div></div></div><div class="donut" style="background:${grad}"><div><strong>${nf.format(total)}</strong><span>partic.</span></div></div></div>`}function triChart(c){const vals=c.alunos.map(a=>a.prof).filter(v=>v!=null),bins=[['< -1,0',v=>v<-1,'#ef4444'],['-1,0 a -0,5',v=>v>=-1&&v<-.5,'#f87171'],['-0,5 a 0',v=>v>=-.5&&v<0,'#f59e0b'],['0 a 0,5',v=>v>=0&&v<.5,'#f59e0b'],['0,5 a 1,0',v=>v>=.5&&v<=1,'#10b981'],['> 1,0',v=>v>1,'#059669']];if(!vals.length)return'';const counts=bins.map(b=>vals.filter(b[1]).length),max=Math.max(...counts,1),total=vals.length,below=counts[0]+counts[1]+counts[2],mid=counts[2]+counts[3],above=counts[3]+counts[4]+counts[5];const pctN=n=>total?fmt(n/total*100,1):'0,0';const summary=(cls,ico,title,n)=>'<div class="tri-summary-card '+cls+'"><div class="ico">'+ico+'</div><div><b>'+title+'</b><strong>'+nf.format(n)+' aluno(s)</strong><span>'+pctN(n)+'%</span></div></div>';return `<div class="card"><h3>Distribuição da Proficiência TRI (theta)<span class="tri-total-pill">${nf.format(total)} estudante(s)</span></h3><p style="color:var(--muted)">Organização visual dos estudantes presentes por faixas de proficiência técnica.</p><div class="tri-bars"><div class="tri-yaxis"><span>${nf.format(max)}</span><span>${nf.format(Math.round(max*.75))}</span><span>${nf.format(Math.round(max*.5))}</span><span>${nf.format(Math.round(max*.25))}</span><span>0</span></div>${bins.map((b,i)=>`<div class="tri-bin">${i===3?'<span class="tri-zero"><em>Ponto central</em></span>':''}<strong style="color:${b[2]}">${counts[i]}</strong><div class="tri-bar" style="height:${Math.max(4,counts[i]/max*118)}px;background:${b[2]}"></div><span class="tri-label">${b[0]}</span></div>`).join('')}</div><div class="tri-summary">${summary('low','↓','Abaixo de 0',below)}${summary('mid','=','Entre -0,5 e 0,5',mid)}${summary('high','↑','Acima de 0',above)}</div><p class="note"><b>Leitura pedagógica:</b> A proficiência TRI, representada pelo valor de theta, é uma medida técnica usada pelo INEP para estimar o desempenho do estudante na prova objetiva. No ENAMED, o valor de theta é disponibilizado em escala técnica com mínimo -9,999 e máximo 9,999. No gráfico, o zero indica o ponto central da escala: valores negativos ficam abaixo desse ponto de referência e valores positivos ficam acima, permitindo visualizar a concentração da turma em níveis mais baixos, intermediários ou mais altos de proficiência.</p></div>`}function notaGeralChart(c){
+  const vals=c.alunos.map(a=>a.nota).filter(v=>v!=null&&!Number.isNaN(Number(v))).map(Number);
+  if(!vals.length)return'';
+  const bins=[['< 40',v=>v<40,'#ef4444'],['40-50',v=>v>=40&&v<50,'#f87171'],['50-60',v=>v>=50&&v<60,'#f59e0b'],['60-70',v=>v>=60&&v<70,'#10b981'],['70-80',v=>v>=70&&v<80,'#22c55e'],['80-90',v=>v>=80&&v<90,'#15946f'],['90-100',v=>v>=90,'#047857']];
+  const counts=bins.map(b=>vals.filter(b[1]).length),maxCount=Math.max(...counts,1),total=vals.length;
+  const proficientes=vals.filter(v=>v>=60).length,naoProficientes=total-proficientes;
+  const profPct=total?proficientes/total:null,naoProfPct=total?naoProficientes/total:null;
+  const media=vals.reduce((s,v)=>s+v,0)/total,min=Math.min(...vals),maxNota=Math.max(...vals);
+  const points=counts.map((n,i)=>`${58+i*(520/(counts.length-1))},${126-(n/maxCount*82+10)}`).join(' ');
+  return `<div class="card nota-dist-card"><h3>Distribuição da Proficiência<span class="tri-total-pill">${nf.format(total)} estudante(s)</span></h3><p style="color:var(--muted)">Distribuição dos estudantes por faixas de proficiência, com referência visual em 60 pontos.</p><div class="nota-proficiency-badges"><span class="nota-prof-badge good"><b>Proficientes</b><strong>${nf.format(proficientes)}</strong><small>${pct(profPct)}</small></span><span class="nota-prof-badge warn"><b>Não proficientes</b><strong>${nf.format(naoProficientes)}</strong><small>${pct(naoProfPct)}</small></span></div><div class="nota-dist-legend"><span><b>Menor nota:</b> ${fmt(min,1)}</span><span><b>Média:</b> ${fmt(media,1)}</span><span><b>Maior nota:</b> ${fmt(maxNota,1)}</span></div><div class="nota-bars"><div class="nota-yaxis"><span>${nf.format(maxCount)}</span><span>${nf.format(Math.round(maxCount*.75))}</span><span>${nf.format(Math.round(maxCount*.5))}</span><span>${nf.format(Math.round(maxCount*.25))}</span><span>0</span></div><svg class="nota-trend" viewBox="0 0 620 150" preserveAspectRatio="none"><polyline points="${points}"/></svg>${bins.map((b,i)=>`<div class="nota-bin">${i===3?'<span class="nota-cutoff"><em>60</em></span>':''}<strong style="color:${b[2]}">${counts[i]}</strong><div class="nota-bar" style="height:${Math.max(5,counts[i]/maxCount*112)}px;background:${b[2]}"></div><span>${b[0]}</span></div>`).join('')}</div><p class="note"><b>Leitura pedagógica:</b> este gráfico organiza a Nota Geral em faixas de desempenho, permitindo identificar a concentração dos estudantes antes e depois da referência de 60 pontos usada para leitura dos concluintes acima do padrão.</p></div>`
+}
+function nationalPositionChart(c){
+  const rows=DATA.courses.map(x=>({nota:Number(x.medias&&x.medias.NT_GER),sigla:x.sigla||'',ies:x.ies||''})).filter(x=>Number.isFinite(x.nota));
+  const course=Number(c.medias&&c.medias.NT_GER);
+  if(!rows.length||!Number.isFinite(course))return '';
+  const values=rows.map(x=>x.nota).sort((a,b)=>a-b);
+  const n=values.length;
+  const mean=values.reduce((a,b)=>a+b,0)/n;
+  const variance=values.reduce((a,b)=>a+Math.pow(b-mean,2),0)/n;
+  const sd=Math.sqrt(variance)||1;
+  const min=values[0], max=values[values.length-1];
+  const positiveValues=values.filter(v=>v>0);
+  const minDisplay=positiveValues.length?positiveValues[0]:min;
+  const start=Math.max(0,Math.floor((min-2)/5)*5);
+  const stop=Math.min(100,Math.ceil((max+2)/5)*5);
+  const span=Math.max(5,stop-start);
+  const bins=[];
+  for(let a=start;a<stop;a+=5)bins.push({from:a,to:a+5,label:`${a}-${a+5}`,count:0});
+  values.forEach(v=>{let b=bins.find((b,i)=>v>=b.from&&(v<b.to||(i===bins.length-1&&v<=b.to)));if(b)b.count++;});
+  const maxPct=Math.max(...bins.map(b=>b.count/n*100),1);
+  const W=720,H=286,L=58,R=26,T=30,B=62,plotW=W-L-R,plotH=H-T-B;
+  const x=v=>L+((Math.max(start,Math.min(stop,v))-start)/span)*plotW;
+  const y=p=>T+plotH-(p/maxPct)*plotH;
+  const bw=Math.max(14,(plotW/bins.length)*.72);
+  const bars=bins.map(b=>{const bp=b.count/n*100;const h=Math.max(2,T+plotH-y(bp));const bx=x((b.from+b.to)/2)-bw/2;return `<rect x="${bx.toFixed(1)}" y="${(T+plotH-h).toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="4" fill="#aebbd0" opacity=".82"/><text x="${(bx+bw/2).toFixed(1)}" y="${(T+plotH+22).toFixed(1)}" text-anchor="middle" class="np-axis-label">${b.label}</text>`}).join('');
+  const grid=[0,.25,.5,.75,1].map(t=>{const yy=T+plotH-(t*plotH);const val=maxPct*t;return `<line x1="${L}" y1="${yy.toFixed(1)}" x2="${W-R}" y2="${yy.toFixed(1)}" class="np-grid"/><text x="${L-10}" y="${(yy+4).toFixed(1)}" text-anchor="end" class="np-y-label">${fmt(val,0)}</text>`}).join('');
+  const peak=1/(sd*Math.sqrt(2*Math.PI));
+  const curve=[];
+  for(let i=0;i<=140;i++){const v=start+span*i/140;const density=(1/(sd*Math.sqrt(2*Math.PI)))*Math.exp(-.5*Math.pow((v-mean)/sd,2));const pctVal=(density/peak)*maxPct*.92;curve.push(`${x(v).toFixed(1)},${y(pctVal).toFixed(1)}`);}
+  const courseX=x(course), meanX=x(mean);
+  const courseLabel=esc((c.sigla||c.ies||'Seu curso').split(' - ')[0]);
+  const closeLabels=Math.abs(courseX-meanX)<86;
+  const clampLabel=v=>Math.min(W-R-14,Math.max(L+14,v));
+  const courseTextX=closeLabels?clampLabel(courseX+(courseX<=meanX?-10:10)):clampLabel(courseX);
+  const meanTextX=closeLabels?clampLabel(meanX+(courseX<=meanX?10:-10)):clampLabel(meanX);
+  const courseAnchor=closeLabels?(courseX<=meanX?'end':'start'):'middle';
+  const meanAnchor=closeLabels?(courseX<=meanX?'start':'end'):'middle';
+  const courseLabelY=closeLabels?T-22:T-18;
+  const meanLabelY=closeLabels?T-2:T-9;
+  return `<div class="card national-position-card"><h3>Posição Nacional - Proficiência</h3><p class="national-position-sub">Distribuição das notas médias dos cursos participantes, com destaque para o curso selecionado.</p><div class="national-chart-box"><svg class="national-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Distribuição nacional das notas médias"><g>${grid}</g><line x1="${L}" y1="${T+plotH}" x2="${W-R}" y2="${T+plotH}" class="np-axis"/>${bars}<polyline points="${curve.join(' ')}" class="np-curve"/><line x1="${meanX.toFixed(1)}" y1="${T}" x2="${meanX.toFixed(1)}" y2="${T+plotH}" class="np-mean-line"/><text x="${meanTextX.toFixed(1)}" y="${meanLabelY}" text-anchor="${meanAnchor}" class="np-mean-label">Média ${fmt(mean,1)}</text><line x1="${courseX.toFixed(1)}" y1="${T-4}" x2="${courseX.toFixed(1)}" y2="${T+plotH}" class="np-course-line"/><text x="${courseTextX.toFixed(1)}" y="${courseLabelY}" text-anchor="${courseAnchor}" class="np-course-label"><tspan x="${courseTextX.toFixed(1)}">${courseLabel}</tspan><tspan x="${courseTextX.toFixed(1)}" dy="13" class="np-course-value">Média curso ${fmt(course,1)}</tspan></text><text x="${L}" y="${H-12}" class="np-x-title">Nota Média do Curso</text><text x="16" y="${T+plotH/2}" transform="rotate(-90 16 ${T+plotH/2})" text-anchor="middle" class="np-y-title">% Cursos</text></svg><div class="national-legend"><span><i class="dist"></i>Distribuição</span><span><i class="curve"></i>Curva normal</span><span><i class="course"></i>Seu curso</span><span><i class="mean"></i>Média nacional</span></div><p class="national-summary">${nf.format(n)} cursos · Média: ${fmt(mean,1)} · Desvio: ${fmt(sd,1)} · Menor: ${fmt(minDisplay,1)} · Maior: ${fmt(max,1)}</p></div></div>`;
+}
+function students(c){return `<div class="card student-performance-card"><h3>Proficiência e Desempenho dos Estudantes</h3><p style="color:var(--muted)">Desempenho individual dos estudantes presentes no curso, apresentado de forma anonimizada conforme os Microdados do ENADE/INEP.</p><p style="color:var(--muted);font-size:11px;margin-top:-6px"><b>*</b> Número de itens válidos: 90 itens.</p><table class="student-table"><thead><tr><th>Estudante</th><th>Proficiência TRI</th><th>Nota Geral</th><th>Clínica</th><th>Pediatria</th><th>Cirurgia</th><th>GO</th><th>Família/Saúde</th><th>Total</th></tr></thead><tbody>${c.alunos.map((a,i)=>`<tr><td>Estudante ${i+1}</td><td>${fmt(a.prof,3)}</td><td><b style="color:${a.nota!=null&&a.nota<60?'#c81e1e':'#15946f'}">${fmt(a.nota,2)}</b></td>${a.areas.map(v=>`<td>${fmt(v,0)}</td>`).join('')}<td><b>${fmt(a.areas.reduce((s,v)=>s+(Number(v)||0),0),0)}</b></td></tr>`).join('')}</tbody></table></div>`}function npsStatsFromDist(dist){const grades=Array(11).fill(0);Object.entries(dist||{}).forEach(([code,n])=>{const v=Number(code);if(Number.isInteger(v)&&v>=0&&v<=10)grades[v]+=Number(n)||0});const total=grades.reduce((s,n)=>s+n,0);if(!total)return null;const prom=grades[9]+grades[10],neu=grades[7]+grades[8],det=grades.slice(0,7).reduce((s,n)=>s+n,0),nps=Math.round((prom-det)/total*100);return{grades,total,prom,neu,det,nps}}
+function npsNacionalEnamed(key){const dist={};(DATA.courses||[]).forEach(c=>{const q=c.qe&&c.qe[key];if(!q)return;Object.entries(q).forEach(([code,n])=>{dist[code]=(dist[code]||0)+(Number(n)||0)})});return npsStatsFromDist(dist)}
+function npsCard(c){const keys=['QE_I57','QE_I58'];let cards='';function colorFor(nps){return nps<0?'#ef4444':(nps<50?'#f59e0b':'#16a34a')}function hColor(v){return v>=9?'#5ad0c0':(v>=7?'#ffd83d':'#f64646')}keys.forEach(k=>{const stats=npsStatsFromDist(c.qe[k]||{});if(!stats)return;const grades=stats.grades,total=stats.total,prom=stats.prom,neu=stats.neu,det=stats.det,nps=stats.nps,color=colorFor(nps),donutPct=Math.max(0,Math.min(100,(nps+100)/2)),max=Math.max(...grades,1),nacional=npsNacionalEnamed(k);const nacionalHtml=nacional?'<span class="nps-national-badge"><span>NPS nacional</span><strong>'+nacional.nps+'</strong></span>':'';const group=(name,count,fillColor)=>{const pctVal=count/total*100;return '<div class="nps-group"><div class="nps-group-name">'+name+'</div><div class="nps-track"><div class="nps-fill" style="width:'+pctVal+'%;background:'+fillColor+'"></div></div><div class="nps-group-value">'+fmt(pctVal,1)+'% / '+nf.format(count)+'</div></div>'};const hist=[10,9,8,7,6,5,4,3,2,1,0].map(v=>'<div class="nps-hbar-wrap"><span class="nps-hcount">'+nf.format(grades[v])+'</span><div class="nps-hbar" style="height:'+Math.max(3,grades[v]/max*76)+'px;background:'+hColor(v)+'"></div><span class="nps-hlabel">'+v+'</span></div>').join('');cards+='<div class="nps-card"><div class="nps-card-head"><h4>'+esc(DATA.qmeta[k]?.question||k)+'</h4><div class="nps-meta-row"><span class="nps-pill">'+nf.format(total)+' resposta(s) · NPS = %Promotores - %Detratores</span>'+nacionalHtml+'</div></div><div class="nps-layout"><div class="nps-donut" style="background:conic-gradient('+color+' 0 '+donutPct+'%, #edf2f7 '+donutPct+'% 100%)"><div class="nps-donut-core"><strong style="color:'+color+'">'+nps+'</strong><span>NPS</span></div></div><div class="nps-groups">'+group('Promotor',prom,'#5ad0c0')+group('Neutro',neu,'#ffd83d')+group('Detrator',det,'#f64646')+'<div class="nps-rule">Promotores: notas 9 e 10 · Neutros: 7 e 8 · Detratores: 0 a 6</div></div><div class="nps-hist">'+hist+'</div></div></div>'});return cards?'<div class="section-title page-break"><h2>Questionário do Estudante</h2><p>Percepção dos estudantes sobre o curso e recomendação.</p></div><div class="card"><h3>Net Promoter Score (NPS)</h3><p class="nps-intro">As perguntas de NPS são calculadas pela metodologia: percentual de promotores menos percentual de detratores. O resultado varia de -100 a 100.</p>'+cards+'<div class="nps-note"><b>Interpretação do NPS:</b> o NPS indica o nível de recomendação dos alunos. Resultado positivo significa mais promotores, com notas 9 e 10, do que detratores, com notas de 0 a 6, sinalizando percepção favorável. Resultado negativo indica zona de atenção e ajuda a direcionar melhorias na experiência acadêmica e na percepção institucional.</div><div class="nps-note nps-national-note"><b>Como ler o NPS nacional:</b> o indicador nacional é calculado a partir das respostas dos estudantes de Medicina na base nacional dos Microdados ENAMED/INEP, sempre para a mesma pergunta exibida no card. No item sobre recomendação do curso, ele mostra a referência nacional para Medicina. No item sobre recomendação da instituição, ele consolida a recomendação das IES pelos estudantes de Medicina. Em ambos os casos, o cálculo segue a regra: percentual de promotores menos percentual de detratores.</div></div>':''}function qCards(c){const axisDefs=[{id:'didatico',name:'Organização Didático-Pedagógica do Curso',color:'#ff981f',keys:['QE_I21','QE_I22','QE_I23','QE_I24','QE_I25','QE_I26','QE_I27','QE_I28','QE_I29','QE_I31','QE_I32','QE_I33','QE_I34','QE_I35','QE_I36','QE_I37','QE_I44','QE_I45','QE_I46','QE_I50','QE_I51','QE_I52','QE_I53','QE_I54','QE_I55','QE_I56']},{id:'infra',name:'Infraestrutura e Instalações Físicas da Instituição',color:'#22c55e',keys:['QE_I30','QE_I38','QE_I39','QE_I40','QE_I41','QE_I42']},{id:'oportunidades',name:'Oportunidades de Ampliação da Formação Acadêmica e Profissional',color:'#3b82f6',keys:['QE_I18','QE_I19','QE_I20','QE_I43','QE_I47','QE_I48','QE_I49']}];const keyAxis={};axisDefs.forEach(a=>a.keys.forEach(k=>keyAxis[k]=a));function validEntriesFrom(dist){return Object.entries(dist||{}).filter(([v])=>['1','2','3','4','5','6'].includes(v))}function meanFromEntries(valid){const total=valid.reduce((s,[,n])=>s+n,0);if(!total)return null;return{valid,total,media:valid.reduce((s,[v,n])=>s+Number(v)*n,0)/total}}function validEntries(k){return validEntriesFrom(c.qe[k]||{})}function statsFor(k){return meanFromEntries(validEntries(k))}function nationalStatsFor(k){const acc={};DATA.courses.forEach(course=>{Object.entries(course.qe?.[k]||{}).forEach(([v,n])=>{if(['1','2','3','4','5','6'].includes(v))acc[v]=(acc[v]||0)+n})});return meanFromEntries(Object.entries(acc))}const nationalByKey={};axisDefs.forEach(a=>a.keys.forEach(k=>nationalByKey[k]=nationalStatsFor(k)));const axisStats=axisDefs.map(a=>{const vals=a.keys.map(k=>statsFor(k)?.media).filter(v=>v!=null),natVals=a.keys.map(k=>nationalByKey[k]?.media).filter(v=>v!=null);return{...a,med:vals.length?vals.reduce((s,v)=>s+v,0)/vals.length:null,national:natVals.length?natVals.reduce((s,v)=>s+v,0)/natVals.length:null,min:vals.length?Math.min(...vals):null,max:vals.length?Math.max(...vals):null,count:vals.length,nationalCount:natVals.length}}).filter(a=>a.count);let out='';if(axisStats.length){out+='<div class="qe-axis-summary"><table class="qe-axis-table"><thead><tr><th>Área</th><th>Curso</th><th>Nacional</th><th>Menor</th><th>Maior</th></tr></thead><tbody>'+axisStats.map(a=>'<tr><td><div class="qe-axis-name">'+esc(a.name)+'</div><span class="qe-axis-count">'+a.count+' questões</span></td><td class="qe-axis-num">'+fmt(a.med,1)+'</td><td class="qe-axis-num qe-national-num">'+(a.national==null?'-':fmt(a.national,1))+'</td><td class="qe-axis-num">'+fmt(a.min,1)+'</td><td class="qe-axis-num">'+fmt(a.max,1)+'</td></tr>').join('')+'</tbody></table><div class="qe-axis-bars">'+axisStats.map(a=>'<div class="qe-axis-bar-row qe-axis-compare-row"><b>'+esc(a.name)+'<br><span style="color:#5f6b7a">'+a.count+' questões</span></b><div class="qe-axis-compare-bars"><div class="qe-mini-row"><span>Curso</span><div class="track"><div class="bar" style="background:'+a.color+'!important;width:'+Math.max(0,Math.min(100,a.med/6*100))+'%"></div></div><strong>'+fmt(a.med,1)+'</strong></div><div class="qe-mini-row national"><span>Nacional</span><div class="track"><div class="bar" style="background:#7c3aed!important;width:'+Math.max(0,Math.min(100,(a.national||0)/6*100))+'%"></div></div><strong>'+(a.national==null?'-':fmt(a.national,1))+'</strong></div></div></div>').join('')+'</div><p class="qe-national-note"><b>Referência nacional:</b> médias calculadas com as respostas válidas dos estudantes de Medicina em todos os cursos da base ENAMED/INEP, mantendo a mesma escala de 1 a 6.</p></div>'}axisDefs.forEach(axis=>{const cards=axis.keys.map(k=>{const st=statsFor(k);if(!st)return'';const nat=nationalByKey[k];return '<div class="q-card"><div class="q-head"><h4>'+k.replace('QE_I','')+' · '+esc(DATA.qmeta[k]?.question||k)+'</h4><div style="color:#5f6b7a;font-size:11px;margin-top:5px">Área: '+esc(axis.name)+' · Código: '+esc(k)+'</div></div><div class="q-body"><div class="q-scoreline"><b>Nota média: '+fmt(st.media,1)+'</b><span>Nacional: '+(nat?fmt(nat.media,1):'-')+'</span><em>'+nf.format(st.total)+' respondentes</em></div>'+st.valid.map(([v,n])=>'<div class="qline"><div class="label">'+esc(DATA.qmeta[k]?.cats?.[v]||v)+'</div><div class="track"><div class="bar" style="background:#ff981f!important;width:'+(n/st.total*100)+'%"></div></div><div>'+fmt(n/st.total*100,1)+'%</div></div>').join('')+'</div></div>'}).join('');if(cards)out+='<div class="qe-axis-section">'+esc(axis.name)+'<span>'+axis.keys.length+' questões classificadas neste eixo.</span></div>'+cards});return out}function rsCards(c){const keys=Object.keys(c.rs||{}).sort((a,b)=>Number(a.match(/\d+/))-Number(b.match(/\d+/)));return `<div class="section-title page-break"><h2>QUESTIONÁRIO DE PERCEPÇÃO DA PROVA</h2><p>Distribuição das respostas dos estudantes às questões de percepção sobre a prova.</p></div>${keys.map(k=>{const dist=c.rs[k]||{},valid=Object.entries(dist).filter(([v])=>v&&v!=='.'&&v!=='*'),total=valid.reduce((s,[,n])=>s+n,0);if(!total)return'';return `<div class="q-card"><div class="q-head"><h4>${esc(DATA.qmeta[k]?.question||k)}</h4></div><div class="q-body">${valid.map(([v,n])=>`<div class="qline"><div class="label">${v} · ${esc(DATA.qmeta[k]?.cats?.[v]||v)}</div><div class="track"><div class="bar" style="background:var(--orange);width:${n/total*100}%"></div></div><div>${nf.format(n)} · ${fmt(n/total*100,1)}%</div></div>`).join('')}</div></div>`}).join('')}`}
+
+
+
+
+function competenceAnalysis(c){const d=ITEM_ANALYSIS.courses[String(c.coCurso)];if(!d||!Array.isArray(d.competencias)||!d.competencias.length)return'';const rows=[...d.competencias].sort((a,b)=>(b.taxa??-1)-(a.taxa??-1)||String(a.competencia).localeCompare(String(b.competencia),'pt-BR'));const cards=rows.map(x=>{const taxa=x.taxa==null?null:Number(x.taxa),nac=x.nacional==null?null:Number(x.nacional),ref=x.conceitoRef==null?null:Number(x.conceitoRef);const refHtml=ref==null?'':`<div class="rate-pill concept"><span>${esc(x.conceitoLabel||'ENAMED')}</span><b>${fmt(ref*100,1)}%</b></div>`;return `<div class="competence-item"><div class="competence-name"><strong>${esc(x.competencia||'Sem competência informada')}</strong><small>${nf.format(x.questoes||0)} questão(ões)</small></div><div class="competence-rates"><div class="rate-pill course"><span>Curso</span><b>${taxa==null?'-':fmt(taxa*100,1)+'%'}</b></div><div class="rate-pill national"><span>Nacional</span><b>${nac==null?'-':fmt(nac*100,1)+'%'}</b></div>${refHtml}</div></div>`}).join('');return `<section class="competence-analysis-card"><div class="competence-head"><div class="competence-title"><div class="competence-icon">◇</div><div><h3>Competências Avaliadas</h3><p>Desempenho médio do curso nas competências associadas às questões objetivas, comparado à média nacional e à referência por faixa ENAMED.</p></div></div><div class="item-pill">${nf.format(rows.length)} competência(s)</div></div><div class="competence-grid">${cards}</div><div class="competence-note"><b>Leitura:</b> cada competência agrupa as questões em que ela aparece no gabarito. A média do curso considera os acertos dos participantes do curso nessas questões; a nacional usa todos os participantes válidos; a referência ENAMED segue a mesma regra aplicada ao relatório de questões.</div></section>`}
+
+function nationalProficientPositionChart(c){
+  const coursePct = x => {
+    const direct = Number(x.acimaPadraoPct);
+
+    if (Number.isFinite(direct)) {
+      return direct <= 1 ? direct * 100 : direct;
+    }
+
+    const q = Number(x.acimaPadraoQtd);
+    const total = Number(x.participantes || x.presentesValidos);
+
+    if (Number.isFinite(q) && Number.isFinite(total) && total > 0) {
+      return q / total * 100;
+    }
+
+    const vals = Array.isArray(x.alunos)
+      ? x.alunos.map(a => Number(a.nota)).filter(Number.isFinite)
+      : [];
+
+    return vals.length
+      ? vals.filter(v => v >= 60).length / vals.length * 100
+      : NaN;
+  };
+
+  const rows = DATA.courses
+    .map(x => ({
+      pct: coursePct(x),
+      sigla: x.sigla || '',
+      ies: x.ies || ''
+    }))
+    .filter(x => Number.isFinite(x.pct));
+
+  const course = coursePct(c);
+
+  if (!rows.length || !Number.isFinite(course)) return '';
+
+  const values = rows.map(x => x.pct).sort((a, b) => a - b);
+  const n = values.length;
+
+  const mean = values.reduce((a, b) => a + b, 0) / n;
+  const min = values[0];
+  const max = values[values.length - 1];
+
+  const bins = [];
+
+  for (let a = 0; a < 100; a += 10) {
+    bins.push({
+      from: a,
+      to: a + 10,
+      label: `${a}-${a + 10}%`,
+      count: 0
+    });
+  }
+
+  values.forEach(v => {
+    const b = bins.find((b, i) =>
+      v >= b.from && (v < b.to || (i === bins.length - 1 && v <= b.to))
+    );
+
+    if (b) b.count++;
+  });
+
+  const maxPct = Math.max(...bins.map(b => b.count / n * 100), 1);
+
+  const W = 720;
+  const H = 272;
+  const L = 58;
+  const R = 28;
+  const T = 30;
+  const B = 62;
+
+  const plotW = W - L - R;
+  const plotH = H - T - B;
+
+  const start = 0;
+  const stop = 100;
+  const span = 100;
+
+  const x = v =>
+    L + ((Math.max(start, Math.min(stop, v)) - start) / span) * plotW;
+
+  const y = p =>
+    T + plotH - (p / maxPct) * plotH;
+
+  const grid = [0, .25, .5, .75, 1].map(t => {
+    const gy = T + plotH - plotH * t;
+    const val = maxPct * t;
+
+    return `
+      <line 
+        x1="${L}" 
+        y1="${gy.toFixed(1)}" 
+        x2="${W - R}" 
+        y2="${gy.toFixed(1)}" 
+        stroke="#d9e5f3" 
+        stroke-dasharray="5 5"
+      />
+      <text 
+        x="${L - 12}" 
+        y="${(gy + 4).toFixed(1)}" 
+        text-anchor="end" 
+        class="np-axis-label"
+      >
+        ${fmt(val, 0)}
+      </text>
+    `;
+  }).join('');
+
+  const bw = Math.max(18, (plotW / bins.length) * .68);
+
+  const bars = bins.map(b => {
+    const bp = b.count / n * 100;
+    const h = Math.max(2, T + plotH - y(bp));
+    const bx = x((b.from + b.to) / 2) - bw / 2;
+
+    return `
+      <rect 
+        x="${bx.toFixed(1)}" 
+        y="${(T + plotH - h).toFixed(1)}" 
+        width="${bw.toFixed(1)}" 
+        height="${h.toFixed(1)}" 
+        rx="4" 
+        fill="#ff981f" 
+        opacity=".88"
+      />
+      <text 
+        x="${(bx + bw / 2).toFixed(1)}" 
+        y="${(T + plotH + 22).toFixed(1)}" 
+        text-anchor="middle" 
+        class="np-axis-label"
+      >
+        ${b.label}
+      </text>
+    `;
+  }).join('');
+
+  const cx = x(course);
+  const mx = x(mean);
+
+  /*
+    Ajuste importante:
+    - cx é a posição real do curso selecionado.
+    - mx é a posição real da média nacional.
+    - Os rótulos ficam centralizados sobre suas próprias linhas.
+    - Quando estão próximos, muda apenas a altura do texto, não a posição horizontal.
+  */
+
+  const courseLabelX = Math.max(L + 42, Math.min(W - R - 42, cx));
+  const meanLabelX = Math.max(L + 42, Math.min(W - R - 42, mx));
+
+  const labelsClose = Math.abs(cx - mx) < 82;
+
+  const meanLabelY = labelsClose ? T - 17 : T - 9;
+  const courseLabelY = labelsClose ? T - 4 : T - 9;
+
+  const courseLine = `
+    <line 
+      x1="${cx.toFixed(1)}" 
+      y1="${T - 2}" 
+      x2="${cx.toFixed(1)}" 
+      y2="${(T + plotH).toFixed(1)}" 
+      stroke="#ef4444" 
+      stroke-width="2.2" 
+      stroke-dasharray="6 5"
+    />
+    <text 
+      x="${courseLabelX.toFixed(1)}" 
+      y="${courseLabelY.toFixed(1)}" 
+      text-anchor="middle" 
+      class="np-course-label"
+    >
+      ${esc(c.sigla || c.ies || 'Seu curso')}: ${fmt(course, 1)}%
+    </text>
+  `;
+
+  const meanLine = `
+    <line 
+      x1="${mx.toFixed(1)}" 
+      y1="${T - 2}" 
+      x2="${mx.toFixed(1)}" 
+      y2="${(T + plotH).toFixed(1)}" 
+      stroke="#3b82f6" 
+      stroke-width="2" 
+      stroke-dasharray="4 4"
+    />
+    <text 
+      x="${meanLabelX.toFixed(1)}" 
+      y="${meanLabelY.toFixed(1)}" 
+      text-anchor="middle" 
+      class="np-mean-label"
+    >
+      Nacional: ${fmt(mean, 1)}%
+    </text>
+  `;
+
+  return `
+    <div class="card national-position-card national-proficient-card">
+      <h3>Posição Nacional - Proficientes</h3>
+
+      <p class="muted">
+  Distribuição dos cursos pelo percentual de alunos com desempenho igual ou superior a 60, corte de proficiência definido pelo MEC, com destaque para o curso selecionado.
+</p>
+
+      <svg 
+        class="national-svg" 
+        viewBox="0 0 ${W} ${H}" 
+        role="img" 
+        aria-label="Distribuição nacional do percentual de alunos proficientes"
+      >
+        <text 
+          x="${L}" 
+          y="${H - 18}" 
+          class="np-axis-title"
+        >
+          % Proficientes do Curso
+        </text>
+
+        <text 
+          x="18" 
+          y="${T + plotH / 2}" 
+          transform="rotate(-90 18 ${T + plotH / 2})" 
+          text-anchor="middle" 
+          class="np-axis-title"
+        >
+          % Cursos
+        </text>
+
+        ${grid}
+
+        <line 
+          x1="${L}" 
+          y1="${T + plotH}" 
+          x2="${W - R}" 
+          y2="${T + plotH}" 
+          stroke="#0f2b4c" 
+          stroke-width="2"
+        />
+
+        ${bars}
+        ${meanLine}
+        ${courseLine}
+      </svg>
+
+      <div class="national-legend">
+        <span>
+          <i style="background:#ff981f"></i>
+          Distribuição
+        </span>
+
+        <span>
+          <i class="course"></i>
+          Seu curso (${fmt(course, 1)}%)
+        </span>
+
+        <span>
+          <i class="mean"></i>
+          Média nacional
+        </span>
+      </div>
+
+      <div class="national-summary">
+        ${nf.format(n)} cursos · Média: ${fmt(mean, 1)}% · Menor: ${fmt(min, 1)}% · Maior: ${fmt(max, 1)}%
+      </div>
+    </div>
+  `;
+}
+
+function macroRadarAnalysis(c){
+ const d=ITEM_ANALYSIS.courses[String(c.coCurso)];
+ const rows=[...((d&&d.macrodominios)||[])].filter(x=>x&&Number.isFinite(Number(x.taxa))&&x.macrodominio);
+ if(rows.length<3)return'';
+ rows.sort((a,b)=>(Number(b.taxa)-Number(a.taxa))||String(a.macrodominio).localeCompare(String(b.macrodominio),'pt-BR'));
+ const cx=220,cy=192,r=108,n=rows.length,levels=[.2,.4,.6,.8,1];
+ const point=(i,v)=>{const ang=-Math.PI/2+i*2*Math.PI/n;return {x:cx+Math.cos(ang)*r*v,y:cy+Math.sin(ang)*r*v,ang};};
+ const pct=x=>fmt((Number(x)||0)*100,1)+'%';
+ const shortName=t=>String(t||'').replace('Registro, documentação e notificação','Registro, documentação e notificação').replace('Conduta terapêutica, cuidado longitudinal e procedimentos','Conduta terapêutica e cuidado longitudinal').replace('Saúde coletiva, APS, vigilância e redes de atenção','Saúde coletiva, APS e vigilância').replace('Exames, propedêutica e uso racional de recursos','Exames, propedêutica e recursos');
+ const wrap=(txt,max=20)=>{const words=shortName(txt).split(/\s+/);const out=[];let line='';words.forEach(w=>{const next=(line+' '+w).trim();if(next.length>max&&line){out.push(line);line=w}else line=next});if(line)out.push(line);return out.slice(0,3);};
+ const grid=levels.map(l=>`<polygon class="radar-grid-poly" points="${rows.map((_,i)=>{const p=point(i,l);return p.x.toFixed(1)+','+p.y.toFixed(1)}).join(' ')}"></polygon>`).join('');
+ const axes=rows.map((_,i)=>{const p=point(i,1);return`<line class="radar-axis" x1="${cx}" y1="${cy}" x2="${p.x.toFixed(1)}" y2="${p.y.toFixed(1)}"/>`}).join('');
+ const coursePts=rows.map((x,i)=>{const p=point(i,Math.max(0,Math.min(1,Number(x.taxa)||0)));return p.x.toFixed(1)+','+p.y.toFixed(1)}).join(' ');
+ const nationalPts=rows.map((x,i)=>{const p=point(i,Math.max(0,Math.min(1,Number(x.nacional)||0)));return p.x.toFixed(1)+','+p.y.toFixed(1)}).join(' ');
+ const dots=rows.map((x,i)=>{const p=point(i,Math.max(0,Math.min(1,Number(x.taxa)||0)));return`<circle class="radar-course-dot" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5"/>`}).join('');
+ const nationalDots=rows.map((x,i)=>{const p=point(i,Math.max(0,Math.min(1,Number(x.nacional)||0)));return`<circle class="radar-national-dot" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4"/>`}).join('');
+ const labels=rows.map((x,i)=>{const p=point(i,1.48),lines=wrap(x.macrodominio,16);let anchor='middle';let lx=p.x;if(Math.cos(p.ang)>.35){anchor='start';lx=Math.min(p.x,330)}if(Math.cos(p.ang)<-.35){anchor='end';lx=Math.max(p.x,110)}const ly=Math.max(34,Math.min(354,p.y));const dy=lines.length>2?-12:-7;return`<text class="radar-label" x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="${anchor}">${lines.map((l,j)=>`<tspan x="${lx.toFixed(1)}" dy="${j?11:dy}">${esc(l)}</tspan>`).join('')}<tspan class="radar-label-pct" x="${lx.toFixed(1)}" dy="13">${pct(x.taxa)}</tspan><tspan class="radar-label-pct-national" x="${lx.toFixed(1)}" dy="12">${pct(x.nacional)}</tspan></text>`}).join('');
+ const levelLabels=levels.map(l=>`<text class="radar-level" x="${cx+7}" y="${(cy-r*l+4).toFixed(1)}">${Math.round(l*100)}%</text>`).join('');
+ const rank=rows.map((x,i)=>`<div class="macro-radar-rank-item"><span class="macro-radar-pos">${i+1}</span><span class="macro-radar-rank-name">${esc(x.macrodominio)}</span><strong class="macro-radar-rank-value">${pct(x.taxa)}</strong></div>`).join('');
+ return `<section class="macro-radar-card"><div class="macro-radar-head"><div class="macro-radar-icon">◇</div><div><h2 class="macro-radar-title">Mapa de Radar dos Macrodomínios Didáticos</h2><p class="macro-radar-sub">Visualização do desempenho do curso por grandes áreas pedagógicas da formação médica.</p></div></div><div class="macro-radar-grid"><div class="macro-radar-plot"><svg class="macro-radar-svg" viewBox="0 0 440 390" role="img" aria-label="Radar dos macrodomínios didáticos"><g>${grid}${axes}${levelLabels}<polygon class="radar-national-area" points="${nationalPts}"></polygon><polygon class="radar-course-area" points="${coursePts}"></polygon>${nationalDots}${dots}${labels}</g></svg></div><aside class="macro-radar-ranking"><div class="macro-radar-ranking-title"><span class="macro-radar-trophy">★</span><div><strong>Desempenho do Curso</strong><span>Macrodomínios ordenados do maior para o menor</span></div></div><div class="macro-radar-rank-list">${rank}</div></aside></div><div class="macro-radar-legend"><span><i class="course"></i>Curso</span><span><i class="national"></i>Nacional</span></div><div class="macro-radar-note"><strong>Leitura:</strong> a linha laranja mostra o desempenho do curso; a linha roxa mostra a referência nacional em cada macrodomínio didático.</div></section>`;
+}
+function groupedReferenceAnalysis(c,key,nameField,title,subtitle,countLabel){const d=ITEM_ANALYSIS.courses[String(c.coCurso)];const rows=[...((d&&d[key])||[])].sort((a,b)=>(b.taxa??-1)-(a.taxa??-1)||String(a[nameField]||'').localeCompare(String(b[nameField]||''),'pt-BR'));if(!rows.length)return'';const cards=rows.map(x=>{const taxa=x.taxa==null?null:Number(x.taxa),nac=x.nacional==null?null:Number(x.nacional),ref=x.conceitoRef==null?null:Number(x.conceitoRef);const refHtml=ref==null?'':`<div class="rate-pill concept"><span>${esc(x.conceitoLabel||'ENAMED')}</span><b>${fmt(ref*100,1)}%</b></div>`;return `<div class="competence-item"><div class="competence-name"><strong>${esc(x[nameField]||'Sem classificação informada')}</strong><small>${nf.format(x.questoes||0)} questão(ões)</small></div><div class="competence-rates"><div class="rate-pill course"><span>Curso</span><b>${taxa==null?'-':fmt(taxa*100,1)+'%'}</b></div><div class="rate-pill national"><span>Nacional</span><b>${nac==null?'-':fmt(nac*100,1)+'%'}</b></div>${refHtml}</div></div>`}).join('');const note=key==='macrodominios'?`<div class="competence-note macro-note"><b>Leitura pedagógica:</b> Para tornar a análise mais pedagógica, as competências oficiais do ENAMED foram organizadas em macrodomínios didáticos. Esse agrupamento permite identificar, de forma mais clara, em quais grandes áreas da formação médica o curso apresenta maior desempenho ou maior necessidade de intervenção. Cada macrodomínio reúne questões associadas a competências próximas, considerando o foco principal exigido para a resolução de cada item.</div>`:key==='focosPedagogicos'?`<div class="competence-note focus-note"><b>Leitura pedagógica:</b> Nesta análise, cada questão foi classificada de acordo com o foco pedagógico predominante, ou seja, o principal conhecimento, habilidade ou decisão exigida para sua resolução. Esse detalhamento pedagógico traduz as competências em áreas mais específicas, permitindo uma leitura mais objetiva das dimensões em que o curso se destaca e daquelas que demandam maior atenção formativa. Os resultados comparam a média do curso com a média nacional e com a referência da faixa ENAMED correspondente.</div>`:'';return `<section class="competence-analysis-card synthesis-card ${key==='macrodominios'?'macro-orange':''}"><div class="competence-head"><div class="competence-title"><div class="competence-icon">◇</div><div><h3>${esc(title)}</h3><p>${esc(subtitle)}</p></div></div><div class="item-pill">${nf.format(rows.length)} ${esc(countLabel)}</div></div><div class="competence-grid">${cards}</div>${note}</section>`}
+function macroDomainAnalysis(c){return groupedReferenceAnalysis(c,'macrodominios','macrodominio','Macrodomínios Didáticos','Síntese do desempenho do curso por grandes áreas pedagógicas da formação médica.','macrodomínio(s)')}
+function pedagogicFocusAnalysis(c){return groupedReferenceAnalysis(c,'focosPedagogicos','focoPedagogico','Diagnóstico Pedagógico ENAMED','Leitura do desempenho do curso por foco pedagógico associado às questões, com comparação nacional e referência por faixa ENAMED.','foco(s)')}
+function itemLevelClass(n){return norm(n).replace(/ /g,'-')}
+function itemAnalysis(c){const d=ITEM_ANALYSIS.courses[String(c.coCurso)];if(!d)return'';const levels=ITEM_ANALYSIS.levels||[];const qs=[...((d.questoes)||[])].sort((a,b)=>Number(a.q)-Number(b.q));const lvlHtml=levels.map(l=>`<div class="level-chip ${itemLevelClass(l)}"><b>${nf.format((d.niveis||{})[l]||0)}</b><span>${esc(l)}</span></div>`).join('');const qHtml=qs.map(q=>{const taxa=Number(q.taxa||0),nac=Number(q.nacional||0),ref=q.conceitoRef==null?null:Number(q.conceitoRef||0);const refHtml=ref==null?'':`<div class="rate-pill concept"><span>${esc(q.conceitoLabel||'ENAMED')}</span><b>${fmt(ref*100,1)}%</b></div>`;return `<div class="catalog-item"><div class="catalog-num">${q.q}</div><div class="catalog-content"><strong>${esc(q.conteudo)}</strong><div class="catalog-meta"><span class="level-badge ${itemLevelClass(q.nivel)}">${esc(q.nivel)}</span></div><div class="catalog-rates"><div class="rate-pill course"><span>Curso</span><b>${fmt(taxa*100,1)}%</b></div><div class="rate-pill national"><span>Nacional</span><b>${fmt(nac*100,1)}%</b></div>${refHtml}</div></div></div>`}).join('');return `<section class="item-analysis-card"><div class="item-analysis-head"><div class="item-analysis-title"><div class="item-analysis-icon">✓</div><div><h3>Questões, Conteúdos e Dificuldade</h3><p>Lista completa das questões válidas, usando o número do Caderno 1 como referência. A classificação segue o índice de facilidade MEC/INEP.</p></div></div><div class="item-pill">${nf.format(d.participantes||0)} participante(s)</div></div><div class="catalog-summary">${lvlHtml}</div><div class="question-catalog">${qHtml}</div><div class="item-note"><b>Regra MEC/INEP:</b> índice de facilidade ≥ 0,86: muito fácil; 0,61 a 0,85: fácil; 0,41 a 0,60: médio; 0,16 a 0,40: difícil; ≤ 0,15: muito difícil. Questões anuladas não entram no cálculo.</div></section>`}
+function courseHtml(c,forPrint=false){return `${forPrint?cover(c):''}<div class="hero"><div><h2>MEDICINA</h2><p><b>${esc(c.ies)}${c.sigla?' ('+esc(c.sigla)+')':''}</b><br>Cód. Curso: ${esc(c.coCurso)} · Cód. IES: ${esc(c.coIes)} · ${esc(c.municipio)}/${esc(c.uf)} · ${esc(c.modalidade)} · ${esc(c.organizacao)}</p></div><div class="concept">ENAMED ${esc(c.conceito)}</div></div><div class="metric-grid">${metric('Nota Geral',fmt(c.medias.NT_GER,2))}${metric('Proficientes',`${nf.format(c.acimaPadraoQtd||0)} <small class="metric-muted-pct">(${pct(c.acimaPadraoPct||0)})</small>`)}${metric('Inscritos',nf.format(c.inscritos||0))}${metric('Participantes',nf.format(c.participantes||0))}${metric('Presença',c.inscritos?pctClean((c.participantes||0)/c.inscritos):'-')}</div>${padraoCard(c)}${triChart(c)}${notaGeralChart(c)}${nationalPositionChart(c)}${nationalProficientPositionChart(c)}${areaAnalysis(c)}${macroRadarAnalysis(c)}${macroDomainAnalysis(c)}${pedagogicFocusAnalysis(c)}${competenceAnalysis(c)}${itemAnalysis(c)}${students(c)}${npsCard(c)}${qCards(c)}${rsCards(c)}`}function cover(c){return `<section class="cover-page"><div class="cover"><div class="cover-top"><div class="cover-brand">${DATA.logo?`<img src="${DATA.logo}">`:''}<span>PREPARA<span style="color:var(--orange)">EDU</span></span></div><div class="cover-source">Fonte: Microdados Enamed 2025 (INEP)</div></div><div class="cover-title">Relatório Estratégico ENAMED Medicina 2025</div><p class="cover-subtitle">Microdados oficiais traduzidos em inteligência acadêmica para gestão de cursos, leitura de desempenho e decisões pedagógicas.</p><div class="cover-course"><div><h2>MEDICINA</h2><p><b>${esc(c.ies)}${c.sigla?' ('+esc(c.sigla)+')':''}</b><br>Cód. Curso: ${esc(c.coCurso)} · Cód. IES: ${esc(c.coIes)} · ${esc(c.municipio)}/${esc(c.uf)} · ${esc(c.modalidade)} · ${esc(c.organizacao)}</p></div><div class="cover-concept">ENAMED ${esc(c.conceito)}</div></div><div class="cover-inst"><b>${esc(c.ies)}${c.sigla?' ('+esc(c.sigla)+')':''}</b> · ${esc(c.categoria)} · ${esc(c.organizacao)} · Gerado em: 01/07/2026</div></div><div class="cover-grid"><div class="cover-info wide"><h3>PreparaEdu: avaliações transformadas em inteligência estratégica</h3><p>A PreparaEdu transforma avaliações em inteligência estratégica. Em uma única plataforma, instituições criam, aplicam, corrigem e analisam simulados, provas online e impressas em escala, com automação, inteligência artificial e dados claros para orientar decisões pedagógicas.</p></div><div class="cover-info"><h3>Microdados ENAMED 2025 organizados para decisão</h3><p>A partir dos Microdados ENAMED 2025, este relatório traduz bases públicas extensas em informações visuais e acionáveis, facilitando a leitura do desempenho do curso, das áreas médicas, da proficiência e da percepção dos estudantes.</p></div><div class="cover-info"><h3>Gestão acadêmica orientada à ação</h3><p>Mais do que apresentar dados, o relatório transforma os microdados em ferramenta de gestão acadêmica, apoiando o planejamento pedagógico, a definição de prioridades e o acompanhamento dos resultados.</p></div><div class="cover-info wide"><h3>Diagnóstico estratégico pronto para coordenadores e gestores</h3><p>O relatório organiza códigos, bases e indicadores em um diagnóstico estratégico personalizado, pronto para apoiar decisões acadêmicas e transformar dados oficiais em ações concretas para fortalecer o curso.</p></div></div><div class="cover-footer"><span>Relatório estratégico desenvolvido pela <b>Prepara<span class="edu">Edu</span></b></span><b>www.preparaedu.com.br</b></div></section>`}function renderDetail(){one('detail').innerHTML=state.selected?courseHtml(state.selected):'<p>Selecione um curso.</p>'}function printSelected(){if(state.selected)printCourse(state.selected.coCurso)}function printCourse(code){const c=DATA.courses.find(x=>x.coCurso===String(code));if(!c)return;const w=window.open('','_blank','width=980,height=760');w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Relatório do Curso - MEDICINA - Cód. ${esc(c.coCurso)} - ${esc(c.modalidade)} - ${esc(c.ies)}${c.sigla?' ('+esc(c.sigla)+')':''} - Microdados ENAMED 2025</title><style>${document.querySelector('style').innerHTML}/* Barras Likert em laranja */ .q-card .qline .bar{background:#ff981f!important}/* Ajustes barras por área e percepção da prova */
+.area-row .bar{background:#ff981f!important}.q-card .qline{grid-template-columns:minmax(190px,1.05fr) minmax(190px,1.25fr) 86px!important;gap:12px!important}.q-card .qline>div:last-child{white-space:nowrap!important;text-align:right!important;font-weight:800;color:#06172c}.q-card .qline .label{line-height:1.2!important}@media print{.q-card .qline{grid-template-columns:minmax(170px,1fr) minmax(190px,1.2fr) 82px!important;gap:10px!important}.q-card .qline>div:last-child{font-size:11px!important}}/* Capa estratégica ENAMED */
+.cover-page{min-height:calc(297mm - 22mm);display:flex;flex-direction:column;break-after:page;page-break-after:always}.cover{background:#0f2744!important;color:#fff!important;border-radius:9px!important;padding:26px 30px!important;margin:0 0 20px!important}.cover-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}.cover-brand{display:flex;align-items:center;gap:18px;font-weight:900;letter-spacing:.28em;color:#fff}.cover-brand img{height:54px;background:#fff;border-radius:8px;padding:9px 18px}.cover-source{color:rgba(255,255,255,.72);font-style:italic;font-size:13px;margin-top:12px}.cover-title{font-size:34px!important;color:#ff981f!important;font-weight:900!important;line-height:1.04!important;margin:26px 0 10px!important}.cover-subtitle{font-size:15px;line-height:1.45;color:#fff!important;max-width:790px}.cover-course{border-top:1px solid rgba(255,255,255,.22);border-bottom:1px solid rgba(255,255,255,.22);margin:18px 0 14px;padding:15px 0;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}.cover-course h2{margin:0 0 6px;color:#ff981f;font-size:25px;line-height:1.1}.cover-course p{margin:0;color:#e5edf8;line-height:1.35}.cover-concept{background:#ff981f;color:#fff;border-radius:8px;padding:11px 20px;font-weight:900;white-space:nowrap}.cover-inst{color:#e5edf8;font-size:13px;line-height:1.35}.cover-inst b{color:#fff}.cover-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.cover-info{border:1px solid #d6e0ee;border-radius:8px;background:#f8fafc;padding:16px 18px;color:#26364c}.cover-info.wide{grid-column:1/-1}.cover-info h3{margin:0 0 8px;color:#ff981f;font-size:17px;line-height:1.15}.cover-info p{margin:0;font-size:13px;line-height:1.43;color:#26364c}.cover-footer{margin-top:auto;border-top:3px solid #0f2744;padding-top:10px;display:flex;justify-content:space-between;gap:20px;color:#5f6b7a;font-size:11px}.cover-footer b{color:#0f2744}.cover-footer .edu{color:#ff981f}@media print{.cover-page{min-height:calc(297mm - 22mm)!important}.cover{padding:24px 28px!important;margin-bottom:18px!important}.cover-brand img{height:48px!important}.cover-title{font-size:31px!important}.cover-course h2{font-size:22px!important}.cover-info{padding:13px 15px!important}.cover-info p{font-size:12px!important}.cover-grid{gap:12px!important}.cover-footer{font-size:10px!important}}/* Ajuste distribuição dos cards de métricas */
+.metric-grid{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:10px!important;align-items:stretch!important}.metric{min-height:70px!important;padding:10px 12px!important;display:flex!important;flex-direction:column!important;justify-content:center!important}.metric b{font-size:10px!important;line-height:1.15!important}.metric span{font-size:18px!important;line-height:1.15!important}@media print{.metric-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:8px!important}.metric{min-height:64px!important;padding:9px 10px!important}.metric span{font-size:16px!important}.metric b{font-size:9px!important}}/* Compactar TRI para subir na página */
+.tri-bars{height:150px!important;padding-top:16px!important;padding-bottom:22px!important}.tri-bar{max-height:92px!important}.tri-label{top:10px!important}.tri-zero{bottom:30px!important}.triChartCompact{} .card:has(.tri-bars){padding-bottom:16px!important;margin-top:10px!important}.card:has(.tri-bars) .note{margin-top:20px!important;padding:12px 14px!important;line-height:1.45!important}.card:has(.tri-bars) h3{margin-bottom:8px!important}.card:has(.tri-bars) p[style*="color:var(--muted)"]{margin:0 0 10px!important}@media print{.tri-bars{height:132px!important;padding-top:14px!important;padding-bottom:22px!important}.tri-bar{max-height:78px!important}.card:has(.tri-bars){padding:11px!important;margin-top:8px!important}.card:has(.tri-bars) .note{margin-top:18px!important;font-size:10px!important;line-height:1.35!important;padding:9px 11px!important}.card:has(.tri-bars) h3{font-size:17px!important}.card:has(.tri-bars) p[style*="color:var(--muted)"]{font-size:11px!important}}/* Otimização área médica e TRI */
+.area-row{padding:9px 0!important;grid-template-columns:1.25fr 90px 1fr 58px!important}.area-name{font-size:13px!important}.area-score{font-size:18px!important}.area-score small{font-size:12px!important}.card:has(.area-row){padding:13px!important;margin-bottom:10px!important}.card:has(.area-row) h3{font-size:18px!important;margin-bottom:10px!important}.card:has(.tri-bars){padding:15px 16px 18px!important;margin-top:8px!important}.tri-bars{height:172px!important;padding:16px 12px 34px!important;align-items:end!important}.tri-label{top:20px!important;font-size:10px!important;background:#fff!important}.tri-zero{bottom:45px!important}.card:has(.tri-bars) .note{margin-top:28px!important}@media print{.area-row{padding:7px 0!important}.card:has(.area-row){padding:10px!important}.area-name{font-size:11px!important}.area-score{font-size:15px!important}.card:has(.tri-bars){padding:12px 13px 15px!important}.tri-bars{height:150px!important;padding-bottom:32px!important}.tri-label{top:18px!important;font-size:9px!important}.tri-zero{bottom:42px!important}.card:has(.tri-bars) .note{margin-top:24px!important}}/* Modelo visual TRI completo */
+.tri-total-pill{float:right;border:1px solid #ffbd73;border-radius:999px;background:#fff7eb;color:#c96800;font-weight:900;padding:6px 12px;font-size:13px}.tri-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.tri-summary-card{border-radius:9px;padding:14px 16px;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;border:1px solid}.tri-summary-card .ico{width:32px;height:32px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px}.tri-summary-card b{display:block;font-size:14px}.tri-summary-card strong{display:block;font-size:17px;color:#06172c;margin-top:3px}.tri-summary-card span{display:block;font-weight:900;margin-top:3px}.tri-summary-card.low{background:#fff5f5;border-color:#fecaca;color:#c81e1e}.tri-summary-card.mid{background:#fff9e8;border-color:#fbbf24;color:#b36b00}.tri-summary-card.high{background:#ecfdf5;border-color:#86efac;color:#047857}.tri-bars{border-bottom:3px solid #0f2744!important}.tri-label{top:18px!important}.tri-zero em{font-size:11px!important}.card:has(.tri-bars) .note{border-left-width:5px!important;font-size:13px!important}.tri-yaxis{position:absolute;left:-24px;top:0;bottom:34px;display:flex;flex-direction:column;justify-content:space-between;color:#60708a;font-size:11px}@media print{.tri-total-pill{font-size:11px!important;padding:5px 10px!important}.tri-summary{gap:8px!important;margin:12px 0!important}.tri-summary-card{padding:10px 12px!important;grid-template-columns:28px 1fr!important}.tri-summary-card .ico{width:26px!important;height:26px!important}.tri-summary-card strong{font-size:14px!important}.tri-summary-card b,.tri-summary-card span{font-size:11px!important}.card:has(.tri-bars) .note{font-size:10px!important}}/* Grafico vertical areas medicas */
+.area-vertical-card{break-inside:avoid;page-break-inside:avoid}.area-vertical-chart{height:230px;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:end;border-left:1px solid #d6e0ee;border-bottom:3px solid #0f2744;padding:22px 14px 38px;margin-top:10px;background:repeating-linear-gradient(to top,#fff 0,#fff 36px,#edf2f7 37px);position:relative}.area-vbar-wrap{height:160px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;position:relative}.area-vvalue{position:absolute;bottom:calc(100% + 6px);font-weight:900;color:#ff7a1a;font-size:14px}.area-vbar{width:56px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#ff981f,#ff7a1a);min-height:5px}.area-vlabel{position:absolute;top:170px;text-align:center;font-weight:900;color:#06172c;font-size:10px;line-height:1.15;width:110px}.area-vnote{color:#5f6b7a;font-size:12px;margin:8px 0 0}@media print{.area-vertical-chart{height:185px;padding-bottom:34px;gap:12px}.area-vbar-wrap{height:125px}.area-vbar{width:42px}.area-vlabel{top:132px;font-size:8.5px;width:88px}.area-vvalue{font-size:11px}.area-vnote{font-size:10px}}/* Refinamento barras verticais area medica */
+.area-vertical-chart{height:285px!important;padding:26px 18px 66px!important;gap:20px!important}.area-vbar-wrap{height:205px!important}.area-vbar{width:62px!important}.area-vlabel{top:214px!important;width:112px!important;font-size:9.5px!important;line-height:1.08!important}.area-vvalue{font-size:13px!important;bottom:calc(100% + 8px)!important}@media print{.area-vertical-chart{height:230px!important;padding-bottom:58px!important}.area-vbar-wrap{height:165px!important}.area-vbar{width:50px!important}.area-vlabel{top:172px!important;width:92px!important;font-size:8px!important}.area-vvalue{font-size:10px!important}}/* Aumentar barras do TRI */
+.card:has(.tri-bars){padding-bottom:20px!important}.tri-bars{height:225px!important;padding-top:20px!important;padding-bottom:38px!important}.tri-bin{height:100%!important}.tri-bar{width:72%!important}.tri-label{top:22px!important}.tri-zero{bottom:50px!important}.tri-yaxis{bottom:42px!important}.tri-summary{margin-top:18px!important}@media print{.tri-bars{height:190px!important;padding-bottom:34px!important}.tri-bar{width:68%!important}.tri-label{top:19px!important}.tri-zero{bottom:46px!important}.tri-yaxis{bottom:39px!important}}/* Aproximar tabela de estudantes do TRI */
+.student-performance-card{break-before:auto!important;page-break-before:auto!important;margin-top:18px!important}@media print{.student-performance-card{break-before:auto!important;page-break-before:auto!important;margin-top:14px!important}}/* Permitir tabela de estudantes subir apos TRI */
+.detail .student-performance-card.card{break-before:auto!important;page-break-before:auto!important;break-inside:auto!important;page-break-inside:auto!important;margin-top:12px!important}.student-performance-card table,.student-performance-card thead,.student-performance-card tbody{break-inside:auto!important;page-break-inside:auto!important}.student-performance-card tr{break-inside:avoid!important;page-break-inside:avoid!important}.student-performance-card h3{break-after:avoid!important;page-break-after:avoid!important}.student-performance-card p{break-after:avoid!important;page-break-after:avoid!important}@media print{.detail .student-performance-card.card{break-before:auto!important;page-break-before:auto!important;break-inside:auto!important;page-break-inside:auto!important;margin-top:10px!important}.student-performance-card .student-table th{position:static!important}}/* Ordenacao e cores area vertical */
+.area-vvalue{color:#06172c!important}.area-vbar{background:var(--area-color,#ff981f)!important}
+/* Cards de metricas compactos tambem na tela */
+.metric-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important;margin:18px 0 20px!important}
+.metric{border:1px solid #d8e2ef!important;background:#fff!important;border-radius:8px!important;padding:14px 16px!important;min-height:74px!important;box-shadow:0 5px 14px rgba(15,39,68,.06)!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+.metric b{display:block!important;font-size:11px!important;line-height:1.05!important;text-transform:uppercase!important;letter-spacing:.055em!important;color:#566984!important;font-weight:900!important}
+.metric span{display:block!important;margin-top:9px!important;font-size:22px!important;line-height:1!important;font-weight:900!important;color:#07182e!important;letter-spacing:-.02em!important}
+@media print{.metric-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important;margin:16px 0 18px!important}.metric{min-height:70px!important;padding:12px 13px!important;border-radius:8px!important}.metric b{font-size:10px!important}.metric span{font-size:20px!important;margin-top:9px!important}}
+
+.item-analysis-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;margin:18px 0;box-shadow:0 8px 24px rgba(15,39,68,.05);break-inside:avoid}.item-analysis-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}.item-analysis-title{display:flex;gap:12px;align-items:flex-start}.item-analysis-icon{width:34px;height:34px;border-radius:10px;background:#f3e8ff;color:#7c3aed;display:grid;place-items:center;font-weight:900}.item-analysis-card h3{margin:0;color:#06172c;font-size:22px}.item-analysis-card p{margin:4px 0 0;color:#40516a;font-size:13px}.item-pill{border:1px solid #fed7aa;background:#fff7ed;color:#ea580c;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:900;white-space:nowrap}.content-analysis-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin-top:12px}.content-rows{border-top:1px solid var(--line)}.content-row{display:grid;grid-template-columns:minmax(190px,1.2fr) 82px minmax(210px,1fr) 86px;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid #e7edf5}.content-row strong{font-size:13px;color:#06172c}.content-row small{display:block;color:#64748b;margin-top:2px}.item-bar-stack{display:grid;gap:5px}.item-mini-row{display:grid;grid-template-columns:64px 1fr;gap:8px;align-items:center}.item-mini-row span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:900}.item-mini-row .curso{color:var(--orange)}.item-mini-row .nac{color:#7c3aed}.track.slim{height:9px;border-radius:99px;background:#eaf0f6;overflow:hidden}.track.slim .bar{height:100%;border-radius:99px}.item-rate{font-weight:900;font-size:16px;color:#06172c;text-align:right}.level-box{border:1px solid var(--line);border-radius:12px;background:#f8fbff;padding:14px}.level-box h4,.question-box h4{margin:0 0 10px;color:#06172c;font-size:15px}.level-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.level-chip{border-radius:10px;padding:9px 10px;background:#fff;border:1px solid #e2e8f0}.level-chip b{display:block;font-size:16px;color:#06172c}.level-chip span{font-size:11px;color:#64748b;font-weight:800}.level-chip.muito-facil{border-color:#86efac;background:#f0fdf4}.level-chip.facil{border-color:#bbf7d0;background:#f0fdf4}.level-chip.medio{border-color:#fde68a;background:#fffbeb}.level-chip.dificil{border-color:#fecaca;background:#fff7ed}.level-chip.muito-dificil{border-color:#fca5a5;background:#fef2f2}.question-box{margin-top:12px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px}.question-item{display:grid;grid-template-columns:42px 1fr 70px;gap:10px;align-items:center;padding:9px 0;border-top:1px solid #edf2f7}.question-item:first-of-type{border-top:0}.question-num{width:32px;height:32px;border-radius:10px;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:900}.question-item strong{font-size:12px;color:#06172c}.question-item small{color:#64748b;display:block;margin-top:2px}.question-rate{text-align:right;font-weight:900;color:#c2410c}.item-note{margin-top:14px;border-left:4px solid var(--orange);background:#fff7ed;border-radius:8px;padding:10px 12px;color:#40516a;font-size:12px}@media(max-width:900px){.content-analysis-grid{grid-template-columns:1fr}.content-row{grid-template-columns:1fr}.item-rate{text-align:left}}@media print{.item-analysis-card{box-shadow:none;page-break-inside:avoid}.content-analysis-grid{grid-template-columns:1.2fr .8fr}.content-row{grid-template-columns:1.15fr 70px 1fr 62px;gap:10px;padding:8px 0}.item-analysis-card h3{font-size:18px}.question-box{break-inside:avoid}.question-item{padding:6px 0}.level-grid{gap:6px}.level-chip{padding:7px}.item-note{font-size:10px}}
+
+/* question-rate-sidecards-v1 */
+.catalog-content{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;column-gap:10px!important;align-items:start!important}
+.catalog-content>strong{grid-column:1!important;grid-row:1!important}
+.catalog-content>.catalog-meta{grid-column:1!important;grid-row:2!important;margin:4px 0 0!important}
+.catalog-content>.catalog-rates{grid-column:2!important;grid-row:1 / span 2!important;align-self:center!important;display:grid!important;grid-template-columns:repeat(2,52px)!important;gap:5px!important;margin:0!important}
+.catalog-content .rate-pill{min-width:0!important;width:52px!important;min-height:38px!important;padding:5px 4px!important;border-radius:7px!important;text-align:center!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important}
+.catalog-content .rate-pill span{font-size:6.8px!important;line-height:1!important;letter-spacing:.05em!important;white-space:nowrap!important}
+.catalog-content .rate-pill b{font-size:11px!important;line-height:1.05!important;margin-top:3px!important;white-space:nowrap!important}
+@media(max-width:900px){.catalog-content{grid-template-columns:1fr!important}.catalog-content>.catalog-rates{grid-column:1!important;grid-row:auto!important;grid-template-columns:repeat(2,58px)!important;margin-top:6px!important}.catalog-content .rate-pill{width:58px!important}}
+@media print{.catalog-content{column-gap:6px!important}.catalog-content>.catalog-rates{grid-template-columns:repeat(2,42px)!important;gap:3px!important}.catalog-content .rate-pill{width:42px!important;min-height:28px!important;padding:3px 2px!important}.catalog-content .rate-pill span{font-size:5.6px!important}.catalog-content .rate-pill b{font-size:8.5px!important}}
+/* print-question-sidecards-v2 */
+@media print{
+  .question-catalog{grid-template-columns:1fr 1fr!important;gap:7px!important}
+  .question-catalog .catalog-item{grid-template-columns:30px minmax(0,1fr)!important;gap:7px!important;padding:6px 7px!important;align-items:center!important}
+  .question-catalog .catalog-num{width:25px!important;height:25px!important;border-radius:8px!important;font-size:10px!important}
+  .question-catalog .catalog-content{display:grid!important;grid-template-columns:minmax(0,1fr) 98px!important;grid-template-rows:auto auto!important;column-gap:7px!important;align-items:center!important}
+  .question-catalog .catalog-content>strong{grid-column:1!important;grid-row:1!important;font-size:7.8px!important;line-height:1.12!important;min-width:0!important}
+  .question-catalog .catalog-content>.catalog-meta{grid-column:1!important;grid-row:2!important;margin:2px 0 0!important;display:flex!important;align-items:center!important;gap:4px!important;flex-wrap:wrap!important}
+  .question-catalog .catalog-content>.catalog-rates{grid-column:2!important;grid-row:1 / span 2!important;display:grid!important;grid-template-columns:repeat(2,46px)!important;gap:5px!important;margin:0!important;align-self:center!important;justify-self:end!important}
+  .question-catalog .catalog-content .rate-pill{width:46px!important;min-height:31px!important;padding:3px 2px!important;border-radius:6px!important;text-align:center!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important}
+  .question-catalog .catalog-content .rate-pill span{display:block!important;font-size:5.3px!important;line-height:1!important;letter-spacing:.04em!important;white-space:nowrap!important}
+  .question-catalog .catalog-content .rate-pill b{display:block!important;font-size:8.3px!important;line-height:1.05!important;margin-top:2px!important;white-space:nowrap!important}
+  .question-catalog .level-badge{font-size:6.6px!important;padding:1px 4px!important;line-height:1.1!important}
+  .question-catalog .catalog-meta small{font-size:7px!important;line-height:1.1!important;white-space:nowrap!important}
+}
+/* question-column-flow-v1 */
+.question-catalog{display:block!important;column-count:2!important;column-gap:10px!important}
+.question-catalog .catalog-item{display:grid!important;break-inside:avoid!important;page-break-inside:avoid!important;margin:0 0 7px!important;width:100%!important}
+@media(max-width:900px){.question-catalog{column-count:1!important}}
+@media print{.question-catalog{display:block!important;column-count:2!important;column-gap:7px!important}.question-catalog .catalog-item{margin:0 0 5px!important;break-inside:avoid!important;page-break-inside:avoid!important}}
+/* readable-course-rate-card-v1 */
+.rate-pill.course{background:#fffaf3!important;border-color:#f6b35d!important}
+.rate-pill.course span{color:#b45309!important}
+.rate-pill.course b{color:#c2410c!important;font-weight:900!important}
+.question-catalog .catalog-content .rate-pill.course{box-shadow:inset 0 0 0 1px rgba(255,152,31,.08)!important}
+@media print{.rate-pill.course{background:#fff8ef!important;border-color:#e89b3a!important}.rate-pill.course span{color:#9a4f00!important}.rate-pill.course b{color:#a83b08!important}}
+</style></head><body><main class="detail">${courseHtml(c,true)}</main><script>setTimeout(()=>window.print(),500)<\/script></body></html>`);w.document.close()}function openCourseReports(){const w=window.open('','_blank','width=980,height=760');const rows=state.rows.map((c,i)=>`<tr><td>${i+1}</td><td><b style="color:#ff6215">${esc(c.ies)}${c.sigla?' ('+esc(c.sigla)+')':''}</b><br><span style="color:#5f6b7a">Cód. ${esc(c.coCurso)} · ${esc(c.municipio)}/${esc(c.uf)} · ${esc(c.modalidade)}</span></td><td>${fmt(c.medias.NT_GER,2)}</td><td><button onclick="opener.printCourse('${esc(c.coCurso)}')">Imprimir PDF</button></td></tr>`).join('');w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Relatórios por Curso - ENAMED</title><style>body{font-family:Arial;margin:28px;background:#f5f7fb;color:#111827}h1{color:#0f2744}table{width:100%;border-collapse:collapse;background:white}th{background:#0f2744;color:white;text-align:left;padding:10px}td{padding:10px;border-top:1px solid #d9e2ef}button{background:#2457a7;color:white;border:0;border-radius:6px;padding:8px 12px;font-weight:800}/* Barras Likert em laranja */ .q-card .qline .bar{background:#ff981f!important}/* Ajustes barras por área e percepção da prova */
+.area-row .bar{background:#ff981f!important}.q-card .qline{grid-template-columns:minmax(190px,1.05fr) minmax(190px,1.25fr) 86px!important;gap:12px!important}.q-card .qline>div:last-child{white-space:nowrap!important;text-align:right!important;font-weight:800;color:#06172c}.q-card .qline .label{line-height:1.2!important}@media print{.q-card .qline{grid-template-columns:minmax(170px,1fr) minmax(190px,1.2fr) 82px!important;gap:10px!important}.q-card .qline>div:last-child{font-size:11px!important}}/* Capa estratégica ENAMED */
+.cover-page{min-height:calc(297mm - 22mm);display:flex;flex-direction:column;break-after:page;page-break-after:always}.cover{background:#0f2744!important;color:#fff!important;border-radius:9px!important;padding:26px 30px!important;margin:0 0 20px!important}.cover-top{display:flex;justify-content:space-between;align-items:flex-start;gap:18px}.cover-brand{display:flex;align-items:center;gap:18px;font-weight:900;letter-spacing:.28em;color:#fff}.cover-brand img{height:54px;background:#fff;border-radius:8px;padding:9px 18px}.cover-source{color:rgba(255,255,255,.72);font-style:italic;font-size:13px;margin-top:12px}.cover-title{font-size:34px!important;color:#ff981f!important;font-weight:900!important;line-height:1.04!important;margin:26px 0 10px!important}.cover-subtitle{font-size:15px;line-height:1.45;color:#fff!important;max-width:790px}.cover-course{border-top:1px solid rgba(255,255,255,.22);border-bottom:1px solid rgba(255,255,255,.22);margin:18px 0 14px;padding:15px 0;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}.cover-course h2{margin:0 0 6px;color:#ff981f;font-size:25px;line-height:1.1}.cover-course p{margin:0;color:#e5edf8;line-height:1.35}.cover-concept{background:#ff981f;color:#fff;border-radius:8px;padding:11px 20px;font-weight:900;white-space:nowrap}.cover-inst{color:#e5edf8;font-size:13px;line-height:1.35}.cover-inst b{color:#fff}.cover-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.cover-info{border:1px solid #d6e0ee;border-radius:8px;background:#f8fafc;padding:16px 18px;color:#26364c}.cover-info.wide{grid-column:1/-1}.cover-info h3{margin:0 0 8px;color:#ff981f;font-size:17px;line-height:1.15}.cover-info p{margin:0;font-size:13px;line-height:1.43;color:#26364c}.cover-footer{margin-top:auto;border-top:3px solid #0f2744;padding-top:10px;display:flex;justify-content:space-between;gap:20px;color:#5f6b7a;font-size:11px}.cover-footer b{color:#0f2744}.cover-footer .edu{color:#ff981f}@media print{.cover-page{min-height:calc(297mm - 22mm)!important}.cover{padding:24px 28px!important;margin-bottom:18px!important}.cover-brand img{height:48px!important}.cover-title{font-size:31px!important}.cover-course h2{font-size:22px!important}.cover-info{padding:13px 15px!important}.cover-info p{font-size:12px!important}.cover-grid{gap:12px!important}.cover-footer{font-size:10px!important}}/* Ajuste distribuição dos cards de métricas */
+.metric-grid{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:10px!important;align-items:stretch!important}.metric{min-height:70px!important;padding:10px 12px!important;display:flex!important;flex-direction:column!important;justify-content:center!important}.metric b{font-size:10px!important;line-height:1.15!important}.metric span{font-size:18px!important;line-height:1.15!important}@media print{.metric-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:8px!important}.metric{min-height:64px!important;padding:9px 10px!important}.metric span{font-size:16px!important}.metric b{font-size:9px!important}}/* Compactar TRI para subir na página */
+.tri-bars{height:150px!important;padding-top:16px!important;padding-bottom:22px!important}.tri-bar{max-height:92px!important}.tri-label{top:10px!important}.tri-zero{bottom:30px!important}.triChartCompact{} .card:has(.tri-bars){padding-bottom:16px!important;margin-top:10px!important}.card:has(.tri-bars) .note{margin-top:20px!important;padding:12px 14px!important;line-height:1.45!important}.card:has(.tri-bars) h3{margin-bottom:8px!important}.card:has(.tri-bars) p[style*="color:var(--muted)"]{margin:0 0 10px!important}@media print{.tri-bars{height:132px!important;padding-top:14px!important;padding-bottom:22px!important}.tri-bar{max-height:78px!important}.card:has(.tri-bars){padding:11px!important;margin-top:8px!important}.card:has(.tri-bars) .note{margin-top:18px!important;font-size:10px!important;line-height:1.35!important;padding:9px 11px!important}.card:has(.tri-bars) h3{font-size:17px!important}.card:has(.tri-bars) p[style*="color:var(--muted)"]{font-size:11px!important}}/* Otimização área médica e TRI */
+.area-row{padding:9px 0!important;grid-template-columns:1.25fr 90px 1fr 58px!important}.area-name{font-size:13px!important}.area-score{font-size:18px!important}.area-score small{font-size:12px!important}.card:has(.area-row){padding:13px!important;margin-bottom:10px!important}.card:has(.area-row) h3{font-size:18px!important;margin-bottom:10px!important}.card:has(.tri-bars){padding:15px 16px 18px!important;margin-top:8px!important}.tri-bars{height:172px!important;padding:16px 12px 34px!important;align-items:end!important}.tri-label{top:20px!important;font-size:10px!important;background:#fff!important}.tri-zero{bottom:45px!important}.card:has(.tri-bars) .note{margin-top:28px!important}@media print{.area-row{padding:7px 0!important}.card:has(.area-row){padding:10px!important}.area-name{font-size:11px!important}.area-score{font-size:15px!important}.card:has(.tri-bars){padding:12px 13px 15px!important}.tri-bars{height:150px!important;padding-bottom:32px!important}.tri-label{top:18px!important;font-size:9px!important}.tri-zero{bottom:42px!important}.card:has(.tri-bars) .note{margin-top:24px!important}}/* Modelo visual TRI completo */
+.tri-total-pill{float:right;border:1px solid #ffbd73;border-radius:999px;background:#fff7eb;color:#c96800;font-weight:900;padding:6px 12px;font-size:13px}.tri-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.tri-summary-card{border-radius:9px;padding:14px 16px;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;border:1px solid}.tri-summary-card .ico{width:32px;height:32px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px}.tri-summary-card b{display:block;font-size:14px}.tri-summary-card strong{display:block;font-size:17px;color:#06172c;margin-top:3px}.tri-summary-card span{display:block;font-weight:900;margin-top:3px}.tri-summary-card.low{background:#fff5f5;border-color:#fecaca;color:#c81e1e}.tri-summary-card.mid{background:#fff9e8;border-color:#fbbf24;color:#b36b00}.tri-summary-card.high{background:#ecfdf5;border-color:#86efac;color:#047857}.tri-bars{border-bottom:3px solid #0f2744!important}.tri-label{top:18px!important}.tri-zero em{font-size:11px!important}.card:has(.tri-bars) .note{border-left-width:5px!important;font-size:13px!important}.tri-yaxis{position:absolute;left:-24px;top:0;bottom:34px;display:flex;flex-direction:column;justify-content:space-between;color:#60708a;font-size:11px}@media print{.tri-total-pill{font-size:11px!important;padding:5px 10px!important}.tri-summary{gap:8px!important;margin:12px 0!important}.tri-summary-card{padding:10px 12px!important;grid-template-columns:28px 1fr!important}.tri-summary-card .ico{width:26px!important;height:26px!important}.tri-summary-card strong{font-size:14px!important}.tri-summary-card b,.tri-summary-card span{font-size:11px!important}.card:has(.tri-bars) .note{font-size:10px!important}}/* Grafico vertical areas medicas */
+.area-vertical-card{break-inside:avoid;page-break-inside:avoid}.area-vertical-chart{height:230px;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:end;border-left:1px solid #d6e0ee;border-bottom:3px solid #0f2744;padding:22px 14px 38px;margin-top:10px;background:repeating-linear-gradient(to top,#fff 0,#fff 36px,#edf2f7 37px);position:relative}.area-vbar-wrap{height:160px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;position:relative}.area-vvalue{position:absolute;bottom:calc(100% + 6px);font-weight:900;color:#ff7a1a;font-size:14px}.area-vbar{width:56px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#ff981f,#ff7a1a);min-height:5px}.area-vlabel{position:absolute;top:170px;text-align:center;font-weight:900;color:#06172c;font-size:10px;line-height:1.15;width:110px}.area-vnote{color:#5f6b7a;font-size:12px;margin:8px 0 0}@media print{.area-vertical-chart{height:185px;padding-bottom:34px;gap:12px}.area-vbar-wrap{height:125px}.area-vbar{width:42px}.area-vlabel{top:132px;font-size:8.5px;width:88px}.area-vvalue{font-size:11px}.area-vnote{font-size:10px}}/* Refinamento barras verticais area medica */
+.area-vertical-chart{height:285px!important;padding:26px 18px 66px!important;gap:20px!important}.area-vbar-wrap{height:205px!important}.area-vbar{width:62px!important}.area-vlabel{top:214px!important;width:112px!important;font-size:9.5px!important;line-height:1.08!important}.area-vvalue{font-size:13px!important;bottom:calc(100% + 8px)!important}@media print{.area-vertical-chart{height:230px!important;padding-bottom:58px!important}.area-vbar-wrap{height:165px!important}.area-vbar{width:50px!important}.area-vlabel{top:172px!important;width:92px!important;font-size:8px!important}.area-vvalue{font-size:10px!important}}/* Aumentar barras do TRI */
+.card:has(.tri-bars){padding-bottom:20px!important}.tri-bars{height:225px!important;padding-top:20px!important;padding-bottom:38px!important}.tri-bin{height:100%!important}.tri-bar{width:72%!important}.tri-label{top:22px!important}.tri-zero{bottom:50px!important}.tri-yaxis{bottom:42px!important}.tri-summary{margin-top:18px!important}@media print{.tri-bars{height:190px!important;padding-bottom:34px!important}.tri-bar{width:68%!important}.tri-label{top:19px!important}.tri-zero{bottom:46px!important}.tri-yaxis{bottom:39px!important}}/* Aproximar tabela de estudantes do TRI */
+.student-performance-card{break-before:auto!important;page-break-before:auto!important;margin-top:18px!important}@media print{.student-performance-card{break-before:auto!important;page-break-before:auto!important;margin-top:14px!important}}/* Permitir tabela de estudantes subir apos TRI */
+.detail .student-performance-card.card{break-before:auto!important;page-break-before:auto!important;break-inside:auto!important;page-break-inside:auto!important;margin-top:12px!important}.student-performance-card table,.student-performance-card thead,.student-performance-card tbody{break-inside:auto!important;page-break-inside:auto!important}.student-performance-card tr{break-inside:avoid!important;page-break-inside:avoid!important}.student-performance-card h3{break-after:avoid!important;page-break-after:avoid!important}.student-performance-card p{break-after:avoid!important;page-break-after:avoid!important}@media print{.detail .student-performance-card.card{break-before:auto!important;page-break-before:auto!important;break-inside:auto!important;page-break-inside:auto!important;margin-top:10px!important}.student-performance-card .student-table th{position:static!important}}/* Ordenacao e cores area vertical */
+.area-vvalue{color:#06172c!important}.area-vbar{background:var(--area-color,#ff981f)!important}
+/* Cards de metricas compactos tambem na tela */
+.metric-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important;margin:18px 0 20px!important}
+.metric{border:1px solid #d8e2ef!important;background:#fff!important;border-radius:8px!important;padding:14px 16px!important;min-height:74px!important;box-shadow:0 5px 14px rgba(15,39,68,.06)!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+.metric b{display:block!important;font-size:11px!important;line-height:1.05!important;text-transform:uppercase!important;letter-spacing:.055em!important;color:#566984!important;font-weight:900!important}
+.metric span{display:block!important;margin-top:9px!important;font-size:22px!important;line-height:1!important;font-weight:900!important;color:#07182e!important;letter-spacing:-.02em!important}
+@media print{.metric-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important;margin:16px 0 18px!important}.metric{min-height:70px!important;padding:12px 13px!important;border-radius:8px!important}.metric b{font-size:10px!important}.metric span{font-size:20px!important;margin-top:9px!important}}
+
+.item-analysis-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;margin:18px 0;box-shadow:0 8px 24px rgba(15,39,68,.05);break-inside:avoid}.item-analysis-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px}.item-analysis-title{display:flex;gap:12px;align-items:flex-start}.item-analysis-icon{width:34px;height:34px;border-radius:10px;background:#f3e8ff;color:#7c3aed;display:grid;place-items:center;font-weight:900}.item-analysis-card h3{margin:0;color:#06172c;font-size:22px}.item-analysis-card p{margin:4px 0 0;color:#40516a;font-size:13px}.item-pill{border:1px solid #fed7aa;background:#fff7ed;color:#ea580c;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:900;white-space:nowrap}.content-analysis-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;margin-top:12px}.content-rows{border-top:1px solid var(--line)}.content-row{display:grid;grid-template-columns:minmax(190px,1.2fr) 82px minmax(210px,1fr) 86px;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid #e7edf5}.content-row strong{font-size:13px;color:#06172c}.content-row small{display:block;color:#64748b;margin-top:2px}.item-bar-stack{display:grid;gap:5px}.item-mini-row{display:grid;grid-template-columns:64px 1fr;gap:8px;align-items:center}.item-mini-row span{font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:900}.item-mini-row .curso{color:var(--orange)}.item-mini-row .nac{color:#7c3aed}.track.slim{height:9px;border-radius:99px;background:#eaf0f6;overflow:hidden}.track.slim .bar{height:100%;border-radius:99px}.item-rate{font-weight:900;font-size:16px;color:#06172c;text-align:right}.level-box{border:1px solid var(--line);border-radius:12px;background:#f8fbff;padding:14px}.level-box h4,.question-box h4{margin:0 0 10px;color:#06172c;font-size:15px}.level-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.level-chip{border-radius:10px;padding:9px 10px;background:#fff;border:1px solid #e2e8f0}.level-chip b{display:block;font-size:16px;color:#06172c}.level-chip span{font-size:11px;color:#64748b;font-weight:800}.level-chip.muito-facil{border-color:#86efac;background:#f0fdf4}.level-chip.facil{border-color:#bbf7d0;background:#f0fdf4}.level-chip.medio{border-color:#fde68a;background:#fffbeb}.level-chip.dificil{border-color:#fecaca;background:#fff7ed}.level-chip.muito-dificil{border-color:#fca5a5;background:#fef2f2}.question-box{margin-top:12px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:14px}.question-item{display:grid;grid-template-columns:42px 1fr 70px;gap:10px;align-items:center;padding:9px 0;border-top:1px solid #edf2f7}.question-item:first-of-type{border-top:0}.question-num{width:32px;height:32px;border-radius:10px;background:var(--orange);color:#fff;display:grid;place-items:center;font-weight:900}.question-item strong{font-size:12px;color:#06172c}.question-item small{color:#64748b;display:block;margin-top:2px}.question-rate{text-align:right;font-weight:900;color:#c2410c}.item-note{margin-top:14px;border-left:4px solid var(--orange);background:#fff7ed;border-radius:8px;padding:10px 12px;color:#40516a;font-size:12px}@media(max-width:900px){.content-analysis-grid{grid-template-columns:1fr}.content-row{grid-template-columns:1fr}.item-rate{text-align:left}}@media print{.item-analysis-card{box-shadow:none;page-break-inside:avoid}.content-analysis-grid{grid-template-columns:1.2fr .8fr}.content-row{grid-template-columns:1.15fr 70px 1fr 62px;gap:10px;padding:8px 0}.item-analysis-card h3{font-size:18px}.question-box{break-inside:avoid}.question-item{padding:6px 0}.level-grid{gap:6px}.level-chip{padding:7px}.item-note{font-size:10px}}
+
+/* question-rate-sidecards-v1 */
+.catalog-content{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;column-gap:10px!important;align-items:start!important}
+.catalog-content>strong{grid-column:1!important;grid-row:1!important}
+.catalog-content>.catalog-meta{grid-column:1!important;grid-row:2!important;margin:4px 0 0!important}
+.catalog-content>.catalog-rates{grid-column:2!important;grid-row:1 / span 2!important;align-self:center!important;display:grid!important;grid-template-columns:repeat(2,52px)!important;gap:5px!important;margin:0!important}
+.catalog-content .rate-pill{min-width:0!important;width:52px!important;min-height:38px!important;padding:5px 4px!important;border-radius:7px!important;text-align:center!important;display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:center!important}
+.catalog-content .rate-pill span{font-size:6.8px!important;line-height:1!important;letter-spacing:.05em!important;white-space:nowrap!important}
+.catalog-content .rate-pill b{font-size:11px!important;line-height:1.05!important;margin-top:3px!important;white-space:nowrap!important}
+@media(max-width:900px){.catalog-content{grid-template-columns:1fr!important}.catalog-content>.catalog-rates{grid-column:1!important;grid-row:auto!important;grid-template-columns:repeat(2,58px)!important;margin-top:6px!important}.catalog-content .rate-pill{width:58px!important}}
+@media print{.catalog-content{column-gap:6px!important}.catalog-content>.catalog-rates{grid-template-columns:repeat(2,42px)!important;gap:3px!important}.catalog-content .rate-pill{width:42px!important;min-height:28px!important;padding:3px 2px!important}.catalog-content .rate-pill span{font-size:5.6px!important}.catalog-content .rate-pill b{font-size:8.5px!important}}
+/* print-question-sidecards-v2 */
+@media print{
+  .question-catalog{grid-template-columns:1fr 1fr!important;gap:7px!important}
+  .question-catalog .catalog-item{grid-template-columns:30px minmax(0,1fr)!important;gap:7px!important;padding:6px 7px!important;align-items:center!important}
+  .question-catalog .catalog-num{width:25px!important;height:25px!important;border-radius:8px!important;font-size:10px!important}
+  .question-catalog .catalog-content{display:grid!important;grid-template-columns:minmax(0,1fr) 98px!important;grid-template-rows:auto auto!important;column-gap:7px!important;align-items:center!important}
+  .question-catalog .catalog-content>strong{grid-column:1!important;grid-row:1!important;font-size:7.8px!important;line-height:1.12!important;min-width:0!important}
+  .question-catalog .catalog-content>.catalog-meta{grid-column:1!important;grid-row:2!important;margin:2px 0 0!important;display:flex!important;align-items:center!important;gap:4px!important;flex-wrap:wrap!important}
+  .question-catalog .catalog-content>.catalog-rates{grid-column:2!important;grid-row:1 / span 2!important;display:grid!important;grid-template-columns:repeat(2,46px)!important;gap:5px!important;margin:0!important;align-self:center!important;justify-self:end!important}
+  .question-catalog .catalog-content .rate-pill{width:46px!important;min-height:31px!important;padding:3px 2px!important;border-radius:6px!important;text-align:center!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important}
+  .question-catalog .catalog-content .rate-pill span{display:block!important;font-size:5.3px!important;line-height:1!important;letter-spacing:.04em!important;white-space:nowrap!important}
+  .question-catalog .catalog-content .rate-pill b{display:block!important;font-size:8.3px!important;line-height:1.05!important;margin-top:2px!important;white-space:nowrap!important}
+  .question-catalog .level-badge{font-size:6.6px!important;padding:1px 4px!important;line-height:1.1!important}
+  .question-catalog .catalog-meta small{font-size:7px!important;line-height:1.1!important;white-space:nowrap!important}
+}
+/* question-column-flow-v1 */
+.question-catalog{display:block!important;column-count:2!important;column-gap:10px!important}
+.question-catalog .catalog-item{display:grid!important;break-inside:avoid!important;page-break-inside:avoid!important;margin:0 0 7px!important;width:100%!important}
+@media(max-width:900px){.question-catalog{column-count:1!important}}
+@media print{.question-catalog{display:block!important;column-count:2!important;column-gap:7px!important}.question-catalog .catalog-item{margin:0 0 5px!important;break-inside:avoid!important;page-break-inside:avoid!important}}
+/* readable-course-rate-card-v1 */
+.rate-pill.course{background:#fffaf3!important;border-color:#f6b35d!important}
+.rate-pill.course span{color:#b45309!important}
+.rate-pill.course b{color:#c2410c!important;font-weight:900!important}
+.question-catalog .catalog-content .rate-pill.course{box-shadow:inset 0 0 0 1px rgba(255,152,31,.08)!important}
+@media print{.rate-pill.course{background:#fff8ef!important;border-color:#e89b3a!important}.rate-pill.course span{color:#9a4f00!important}.rate-pill.course b{color:#a83b08!important}}
+</style></head><body><h1>Relatórios completos por curso</h1><p>${state.rows.length} curso(s) no recorte atual.</p><table><thead><tr><th>#</th><th>Curso</th><th>Nota Geral</th><th>Ação</th></tr></thead><tbody>${rows}</tbody></table></body></html>`);w.document.close()}boot();
+</script>
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
